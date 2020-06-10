@@ -1,0 +1,588 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://files.realpython.com" rel="preconnect">
+<title>Strings and Character Data in Python – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="In this course, you&#39;ll learn how to use Python&#39;s rich set of operators, functions, and methods for working with strings. You&#39;ll learn how to access and extract portions of strings, and also become familiar with the methods that are available to manipulate and modify string data in Python 3.">
+<meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/gfonts/font.32be62914940.css">
+<link rel="stylesheet" href="/static/realpython.min.02b677b0fce9.css">
+<link rel="canonical" href="https://realpython.com/courses/python-strings/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/Core-Python-Tutorials_Watermarked.d6103c02c67c.jpg">
+<meta property="og:image" content="https://files.realpython.com/media/Core-Python-Tutorials_Watermarked.d6103c02c67c.jpg">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="Strings and Character Data in Python – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/courses/python-strings/">
+<meta property="og:description" content="In this course, you&#39;ll learn how to use Python&#39;s rich set of operators, functions, and methods for working with strings. You&#39;ll learn how to access and extract portions of strings, and also become familiar with the methods that are available to manipulate and modify string data in Python 3.">
+<link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="/manifest.json">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+  
+    ga('set', 'anonymizeIp', true);
+  
+  
+  ga('send', 'pageview');
+  
+</script>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column">
+<div class="container flex-row">
+<a class="navbar-brand" href="/">
+<img src="/static/real-python-logo.893c30edea53.svg" height="40" class="d-inline-block align-top" alt="Real Python">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-2 flex-fill">
+<li class="nav-item">
+<a class="nav-link" href="/start-here/">Start&nbsp;Here</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap"></span> Learn Python
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+<a class="dropdown-item" href="/" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and tutorials</small></a>
+<a class="dropdown-item" href="/courses/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-film"></i> Video Courses →<br><small class="text-secondary">Step-by-step video lessons</small></a>
+<a class="dropdown-item" href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+<a class="dropdown-item" href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+<a class="dropdown-item" href="/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack"></i> Community →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+<a class="dropdown-item pb-3" href="/tutorials/all/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags"></i> Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+<a class="dropdown-item border-top" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> Unlock All Content</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Store
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> RP Membership</a>
+<a class="dropdown-item" href="/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+<a class="dropdown-item" href="/podcasts/rpp/">Python Podcast</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+<a class="dropdown-item" href="/team/">Meet the Team</a>
+<a class="dropdown-item" href="/write-for-us/">Become a Tutorial Author</a>
+<a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+</div>
+</li>
+</ul>
+<div class="d-block d-xl-none">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search"></i></span></a>
+</li>
+</ul>
+</div>
+<div class="d-none d-xl-flex align-items-center mr-2">
+<form class="form-inline" action="/search" method="GET">
+<i class="fa fa-search fa-fw text-muted position-absolute pl-2"></i>
+<input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" name="q">
+<input type="hidden" name="_from" value="nav">
+</form>
+</div>
+<ul class="navbar-nav">
+<li class="nav-item form-inline">
+<a class="ml-2 ml-lg-0 btn btn-sm btn-primary px-3" href="/account/join/">Join</a>
+</li>
+<li class="nav-item">
+<a class="btn text-light" href="/account/login/">Sign&#8209;In</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+<div class="row justify-content-center">
+<div class="col-12 mb-2">
+<a href="/courses/python-strings/continue/">
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Core Python Tutorials Artwork" src="https://files.realpython.com/media/Core-Python-Tutorials_Watermarked.d6103c02c67c.jpg" width="1920" height="1080" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Core-Python-Tutorials_Watermarked.d6103c02c67c.jpg&amp;w=480&amp;sig=360a2ddc0864f581f35398bddf046eb8ff973cf4 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Core-Python-Tutorials_Watermarked.d6103c02c67c.jpg&amp;w=960&amp;sig=7775f7d38f3b1e317b73d70a0a28d568253b6562 960w, https://files.realpython.com/media/Core-Python-Tutorials_Watermarked.d6103c02c67c.jpg 1920w" sizes="75vw">
+<div class="card-img-overlay d-flex align-items-center rounded visible-hover" style="background: rgba(0,0,0,0.3);">
+<div class="mx-auto">
+<span class="text-light" style="opacity: 0.90;"><i class="fa fa-4x fa-play"></i></span>
+</div>
+</div>
+</figure>
+</a>
+</div>
+<div class="col-md-11 col-lg-8 article">
+<div class="article-body">
+<h1>Strings and Character Data in Python</h1>
+<div class="container">
+<div class="row">
+<div class="col-2 col-md-1 p-0 align-self-center">
+<a href="#team"><img src="https://files.realpython.com/media/IMG_1250.b2eeb8f803ea.jpeg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/IMG_1250.b2eeb8f803ea.jpeg&amp;w=442&amp;sig=8484016889c6b7e5a6b775e00b9d9b44e34bc6d4 442w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/IMG_1250.b2eeb8f803ea.jpeg&amp;w=885&amp;sig=e4601f8101f721fb037789649cbd97172afb9d93 885w, https://files.realpython.com/media/IMG_1250.b2eeb8f803ea.jpeg 1770w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Chris Bailey"></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p>
+<span class="text-muted">
+<span class="mr-2"><a class="text-muted" href="#team" target="_blank">Christopher Bailey</a></span>
+<span class="mr-2">19 Lessons</span>
+<span class="mr-2"><i class="fa fa-clock-o"></i> 1h 48m</span>
+<br>
+<span class="fa fa-tags"></span>
+<a href="/tutorials/basics/" target="_blank" class="badge badge-light text-muted">basics</a>
+<a href="/tutorials/python/" target="_blank" class="badge badge-light text-muted">python</a>
+
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="mb-4"><p>In this course, you&rsquo;ll learn about working with <strong>strings</strong>, which are objects that contain sequences of character data. Processing character data is integral to programming. It is a rare application that doesn’t need to manipulate strings to at least some extent. </p>
+<p>Python provides a rich set of operators, functions, and methods for working with strings. When you&rsquo;re finished this course, you&rsquo;ll know how to:</p>
+<ul>
+<li><strong>Use operators</strong> with strings</li>
+<li><strong>Access and extract portions</strong> of strings</li>
+<li><strong>Use built-in Python functions</strong> with characters and strings</li>
+<li><strong>Use methods to manipulate and modify</strong> string data </li>
+</ul>
+<p>You&rsquo;ll also be introduced to two other Python objects used to represent raw byte data: the <strong>bytes</strong> and <strong>bytearray</strong> types.</p>
+<div class="alert alert-primary" role="alert">
+<p><strong><i class="fa fa-graduation-cap" aria-hidden="true"></i> Take the Quiz:</strong> Test your knowledge with our interactive “Python Strings and Character Data” quiz. Upon completion you will receive a score so you can track your learning progress over time:</p><p class="text-center my-2"><a class="btn btn-primary" href="/quizzes/python-strings/" target="_blank">Take the Quiz »</a></p>
+</div></div>
+<div class="text-center my-5">
+<a class="btn btn-primary btn-lg px-4" href="/courses/python-strings/continue/"><i class="mr-2 fa fa-play fa-fw"></i>Get Started</a>
+</div>
+<div class="mb-5 p-3 bg-white rounded border shadow-sm">
+<h2 class="border-bottom border-gray pb-2 mb-0 h3 mt-0 pt-0">String Manipulation</h2>
+<p class="text-muted mt-1">7 Lessons<span class="ml-2 fa fa-clock-o"></span> 32m</p>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/python-strings-character-data-overview/"><i class="fa fa-film text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/python-strings-character-data-overview/" class=""><span>1. Strings and Character Data in Python: Overview</span></a> <span class="text-muted">(03:50)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/string-operators/"><i class="fa fa-film text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/string-operators/" class=""><span>2. String Operators</span></a> <span class="text-muted">(05:21)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/built-in-string-functions/"><i class="fa fa-film text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/built-in-string-functions/" class=""><span>3. Built-In String Functions</span></a> <span class="text-muted">(05:25)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/string-indexing/"><i class="fa fa-film text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/string-indexing/" class=""><span>4. String Indexing</span></a> <span class="text-muted">(03:24)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/string-slicing/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/string-slicing/" class=""><span>5. String Slicing</span></a> <span class="text-muted">(08:34)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/interpolating-variables-string/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/interpolating-variables-string/" class=""><span>6. Interpolating Variables Into a String</span></a> <span class="text-muted">(03:37)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/modifying-strings/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/modifying-strings/" class=""><span>7. Modifying Strings</span></a> <span class="text-muted">(01:59)</span><p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-5 p-3 bg-white rounded border shadow-sm">
+<h2 class="border-bottom border-gray pb-2 mb-0 h3 mt-0 pt-0">Built-In String Methods</h2>
+<p class="text-muted mt-1">6 Lessons<span class="ml-2 fa fa-clock-o"></span> 50m</p>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/string-methods-overview/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/string-methods-overview/" class=""><span>1. Built-In String Methods: Overview</span></a> <span class="text-muted">(02:06)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+ <div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/case-conversion/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/case-conversion/" class=""><span>2. Case Conversion</span></a> <span class="text-muted">(04:35)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/find-and-seek/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/find-and-seek/" class=""><span>3. Find and Seek</span></a> <span class="text-muted">(09:12)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/character-classification/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/character-classification/" class=""><span>4. Character Classification</span></a> <span class="text-muted">(11:37)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/string-formatting/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/string-formatting/" class=""><span>5. String Formatting</span></a> <span class="text-muted">(10:52)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/converting-between-strings-and-lists/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/converting-between-strings-and-lists/" class=""><span>6. Converting Between Strings and Lists</span></a> <span class="text-muted">(11:52)</span><p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-5 p-3 bg-white rounded border shadow-sm">
+<h2 class="border-bottom border-gray pb-2 mb-0 h3 mt-0 pt-0">bytes Objects</h2>
+<p class="text-muted mt-1">6 Lessons<span class="ml-2 fa fa-clock-o"></span> 26m</p>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/bytes-objects-overview/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/bytes-objects-overview/" class=""><span>1. bytes Objects: Overview</span></a> <span class="text-muted">(01:04)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/defining-literal-bytes-object/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/defining-literal-bytes-object/" class=""><span>2. Defining a Literal bytes Object</span></a> <span class="text-muted">(03:37)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/defining-bytes-objects-bytes/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/defining-bytes-objects-bytes/" class=""><span>3. Defining bytes Objects with bytes()</span></a> <span class="text-muted">(05:55)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/operations-bytes-objects/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/operations-bytes-objects/" class=""><span>4. Operations on bytes Objects</span></a> <span class="text-muted">(08:08)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/bytearray-objects/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/bytearray-objects/" class=""><span>5. bytearray Objects</span></a> <span class="text-muted">(03:19)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/strings-and-character-data-python-conclusion/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/strings-and-character-data-python-conclusion/" class=""><span>6. Strings and Character Data in Python: Conclusion</span></a> <span class="text-muted">(04:16)</span><p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center my-5">
+<a class="btn btn-primary btn-lg px-4" href="/lessons/python-strings-character-data-overview/"><i class="mr-2 fa fa-play fa-fw"></i>Get Started</a>
+</div>
+<div class="card mb-5" id="team">
+<p class="card-header h3">About <strong>Christopher Bailey</strong></p>
+<div class="card-body">
+<div class="container p-0">
+<div class="row">
+<div class="col-12 col-md-3 align-self-center">
+<a href="/team/cbailey/"><img loading="lazy" src="https://files.realpython.com/media/IMG_1250.b2eeb8f803ea.jpeg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/IMG_1250.b2eeb8f803ea.jpeg&amp;w=442&amp;sig=8484016889c6b7e5a6b775e00b9d9b44e34bc6d4 442w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/IMG_1250.b2eeb8f803ea.jpeg&amp;w=885&amp;sig=e4601f8101f721fb037789649cbd97172afb9d93 885w, https://files.realpython.com/media/IMG_1250.b2eeb8f803ea.jpeg 1770w" sizes="25vw" class="d-block d-md-none rounded-circle img-fluid w-33 mb-0 mx-auto" alt="Christopher Bailey"></a>
+<a href="/team/cbailey/"><img loading="lazy" src="https://files.realpython.com/media/IMG_1250.b2eeb8f803ea.jpeg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/IMG_1250.b2eeb8f803ea.jpeg&amp;w=442&amp;sig=8484016889c6b7e5a6b775e00b9d9b44e34bc6d4 442w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/IMG_1250.b2eeb8f803ea.jpeg&amp;w=885&amp;sig=e4601f8101f721fb037789649cbd97172afb9d93 885w, https://files.realpython.com/media/IMG_1250.b2eeb8f803ea.jpeg 1770w" sizes="25vw" class="d-none d-md-block rounded-circle img-fluid w-100 mb-0" alt="Christopher Bailey"></a>
+</div>
+<div class="col mt-3">
+<p>Chris is an avid Pythonista and creates video tutorials for Real Python. He is a programmer and data analyst. He creates music under the name Tripnet. Chris lives in Colorado with his wife and two dogs.</p>
+<a href="/team/cbailey/" class="card-link">» More about Christopher</a>
+</div>
+</div>
+</div>
+</div>
+<hr class="my-0">
+<div class="card-body pb-0">
+<div class="container">
+<div class="row">
+<p><em>Each tutorial at Real Python is created by a team of developers so that it meets our high quality standards. The team members who worked on this tutorial are:</em></p>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/dbader/"><img loading="lazy" src="https://files.realpython.com/media/daniel-square.d58bf4388750.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/daniel-square.d58bf4388750.jpg&amp;w=250&amp;sig=0f6c5ef7f5786b2a198fe2d700695467601836fe 250w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/daniel-square.d58bf4388750.jpg&amp;w=500&amp;sig=6d44e31ac8b0ed5d7bf09163b66e9374d79b7256 500w, https://files.realpython.com/media/daniel-square.d58bf4388750.jpg 1000w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Dan Bader"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/dbader/" class="card-link"><p>Dan</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/tmoore/"><img loading="lazy" src="https://files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG&amp;w=77&amp;sig=123b8cbeaee9b9fddbe41452e10fa0a05cfad2e0 77w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG&amp;w=154&amp;sig=46886020559cd3c87306f74c6c1bc5ae8b156e62 154w, https://files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG 308w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Tappan Moore"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/tmoore/" class="card-link"><p>Tappan</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/jjablonski/"><img loading="lazy" src="https://files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg&amp;w=200&amp;sig=d779dbceba743afb659648000525a6a71656ae98 200w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg&amp;w=400&amp;sig=99ce401a9a219f6b406309e90925252be1900dfc 400w, https://files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg 800w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Joanna Jablonski"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/jjablonski/" class="card-link"><p>Joanna</p></a>
+</div>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/jsturtz/"><img loading="lazy" src="https://files.realpython.com/media/img007.18d0e80683f7.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/img007.18d0e80683f7.jpg&amp;w=89&amp;sig=d6ed4490cd31e4c90fc3debe0b7c98e4326a9e47 89w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/img007.18d0e80683f7.jpg&amp;w=179&amp;sig=e0aa11d8a4f585bb04981bd2a57008688e1c0259 179w, https://files.realpython.com/media/img007.18d0e80683f7.jpg 358w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="John Sturtz"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/jsturtz/" class="card-link"><p>John</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center"></div>
+<div class="col pl-0 d-none d-sm-block"></div>
+<div class="col-4 col-sm-2 align-self-center"></div>
+<div class="col pl-0 d-none d-sm-block"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="mb-5"><a href="/courses/">« Browse All Courses</a></p>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="text-center text-muted">© 2012–2020 Real Python ⋅ <a style="text-decoration: none;" href="/privacy-policy/">Privacy Policy</a>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="/static/jquery.min.220afd743d9e.js"></script>
+<script src="/static/popper.min.1022eaf388cc.js"></script>
+<script src="/static/bootstrap.min.61f338f870fc.js"></script>
+<script src="/static/repl-toggle.366cb6d72340.js"></script>
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+</body>
+</html>

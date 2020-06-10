@@ -1,0 +1,461 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://files.realpython.com" rel="preconnect">
+<title>Python KeyError Exceptions and How to Handle Them – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="In this course, you&#39;ll learn how to handle Python KeyError exceptions. They are often caused by a bad key lookup in a dictionary, but there are a few other situations when a KeyError can be raised as well. Knowing how to handle these exceptions is essential to writing good Python code.">
+<meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/gfonts/font.32be62914940.css">
+<link rel="stylesheet" href="/static/realpython.min.02b677b0fce9.css">
+<link rel="canonical" href="https://realpython.com/courses/python-keyerror/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/What-is-A-Python-KeyError_Watermarked.6bd397b3a5e9.jpg">
+<meta property="og:image" content="https://files.realpython.com/media/What-is-A-Python-KeyError_Watermarked.6bd397b3a5e9.jpg">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="Python KeyError Exceptions and How to Handle Them – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/courses/python-keyerror/">
+<meta property="og:description" content="In this course, you&#39;ll learn how to handle Python KeyError exceptions. They are often caused by a bad key lookup in a dictionary, but there are a few other situations when a KeyError can be raised as well. Knowing how to handle these exceptions is essential to writing good Python code.">
+<link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="/manifest.json">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+  
+    ga('set', 'anonymizeIp', true);
+  
+  
+  ga('send', 'pageview');
+  
+</script>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column">
+<div class="container flex-row">
+<a class="navbar-brand" href="/">
+<img src="/static/real-python-logo.893c30edea53.svg" height="40" class="d-inline-block align-top" alt="Real Python">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-2 flex-fill">
+<li class="nav-item">
+<a class="nav-link" href="/start-here/">Start&nbsp;Here</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap"></span> Learn Python
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+<a class="dropdown-item" href="/" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and tutorials</small></a>
+<a class="dropdown-item" href="/courses/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-film"></i> Video Courses →<br><small class="text-secondary">Step-by-step video lessons</small></a>
+<a class="dropdown-item" href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+<a class="dropdown-item" href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+<a class="dropdown-item" href="/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack"></i> Community →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+<a class="dropdown-item pb-3" href="/tutorials/all/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags"></i> Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+<a class="dropdown-item border-top" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> Unlock All Content</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Store
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> RP Membership</a>
+<a class="dropdown-item" href="/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+<a class="dropdown-item" href="/podcasts/rpp/">Python Podcast</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+<a class="dropdown-item" href="/team/">Meet the Team</a>
+<a class="dropdown-item" href="/write-for-us/">Become a Tutorial Author</a>
+<a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+</div>
+</li>
+</ul>
+<div class="d-block d-xl-none">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search"></i></span></a>
+</li>
+</ul>
+</div>
+<div class="d-none d-xl-flex align-items-center mr-2">
+<form class="form-inline" action="/search" method="GET">
+<i class="fa fa-search fa-fw text-muted position-absolute pl-2"></i>
+<input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" name="q">
+<input type="hidden" name="_from" value="nav">
+</form>
+</div>
+<ul class="navbar-nav">
+<li class="nav-item form-inline">
+<a class="ml-2 ml-lg-0 btn btn-sm btn-primary px-3" href="/account/join/">Join</a>
+</li>
+<li class="nav-item">
+<a class="btn text-light" href="/account/login/">Sign&#8209;In</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+<div class="row justify-content-center">
+<div class="col-12 mb-2">
+<a href="/courses/python-keyerror/continue/">
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Python KeyError Exceptions and How to Handle Them" src="https://files.realpython.com/media/What-is-A-Python-KeyError_Watermarked.6bd397b3a5e9.jpg" width="1920" height="1080" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/What-is-A-Python-KeyError_Watermarked.6bd397b3a5e9.jpg&amp;w=480&amp;sig=ada4e686fb31d89f76863248ed378cacde2e8707 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/What-is-A-Python-KeyError_Watermarked.6bd397b3a5e9.jpg&amp;w=960&amp;sig=1d5b71e06a3f510f266321725f4b77dc656ab396 960w, https://files.realpython.com/media/What-is-A-Python-KeyError_Watermarked.6bd397b3a5e9.jpg 1920w" sizes="75vw">
+<div class="card-img-overlay d-flex align-items-center rounded visible-hover" style="background: rgba(0,0,0,0.3);">
+<div class="mx-auto">
+<span class="text-light" style="opacity: 0.90;"><i class="fa fa-4x fa-play"></i></span>
+</div>
+</div>
+</figure>
+</a>
+</div>
+<div class="col-md-11 col-lg-8 article">
+<div class="article-body">
+<h1>Python KeyError Exceptions and How to Handle Them</h1>
+<div class="container">
+<div class="row">
+<div class="col-2 col-md-1 p-0 align-self-center">
+<a href="#team"><img src="https://files.realpython.com/media/author-rbibby.afaa2d14b4ab.jpeg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/author-rbibby.afaa2d14b4ab.jpeg&amp;w=100&amp;sig=d487a8e7ed15ed704cab0e1c377cc204db4eb95b 100w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/author-rbibby.afaa2d14b4ab.jpeg&amp;w=200&amp;sig=21da33a91ba1c869bf810b06e4bae3aac2cb5a87 200w, https://files.realpython.com/media/author-rbibby.afaa2d14b4ab.jpeg 400w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Rich Bibby"></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p>
+<span class="text-muted">
+<span class="mr-2"><a class="text-muted" href="#team" target="_blank">Rich Bibby</a></span>
+<span class="mr-2">5 Lessons</span>
+<span class="mr-2"><i class="fa fa-clock-o"></i> 10m</span>
+<br>
+<span class="fa fa-tags"></span>
+<a href="/tutorials/basics/" target="_blank" class="badge badge-light text-muted">basics</a>
+<a href="/tutorials/python/" target="_blank" class="badge badge-light text-muted">python</a>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="mb-4"><p>Python&rsquo;s <strong><code>KeyError</code></strong> exception is a common exception encountered by beginners. Knowing why a <code>KeyError</code> can be raised and some solutions to prevent it from stopping your program are essential steps to improving as a Python programmer.</p>
+<p><strong>By the end of this course, you&rsquo;ll know:</strong></p>
+<ul>
+<li>What a Python <code>KeyError</code> usually means</li>
+<li>Where else you might see a <code>KeyError</code> in the standard library</li>
+<li>How to handle a <code>KeyError</code> when you see it</li>
+<li>When to raise a Python <code>KeyError</code> in your code</li>
+</ul></div>
+<div class="text-center my-5">
+<a class="btn btn-primary btn-lg px-4" href="/courses/python-keyerror/continue/"><i class="mr-2 fa fa-play fa-fw"></i>Get Started</a>
+</div>
+<div class="mb-5 p-3 bg-white rounded border shadow-sm">
+<h2 class="border-bottom border-gray pb-2 mb-0 h3 mt-0 pt-0">Python KeyError Exceptions and How to Handle Them</h2>
+<p class="text-muted mt-1">5 Lessons<span class="ml-2 fa fa-clock-o"></span> 10m</p>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/what-python-keyerror-means/"><i class="fa fa-film text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/what-python-keyerror-means/" class=""><span>1. What a Python KeyError Usually Means</span></a> <span class="text-muted">(03:20)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/python-keyerror-standard-library/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/python-keyerror-standard-library/" class=""><span>2. Where You Might See a Python KeyError in the Standard Library</span></a> <span class="text-muted">(01:23)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/when-to-raise-python-keyerror/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/when-to-raise-python-keyerror/" class=""><span>3. When to Raise a Python KeyError in Your Code</span></a> <span class="text-muted">(00:39)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/how-handle-python-keyerror/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+ <p class="h5 mb-0"><a href="/lessons/how-handle-python-keyerror/" class=""><span>4. How to Handle a Python KeyError</span></a> <span class="text-muted">(03:57)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/python-keyerror-summary/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/python-keyerror-summary/" class=""><span>5. Python KeyError Exceptions and How to Handle Them: Summary</span></a> <span class="text-muted">(01:03)</span><p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center my-5">
+<a class="btn btn-primary btn-lg px-4" href="/lessons/what-python-keyerror-means/"><i class="mr-2 fa fa-play fa-fw"></i>Get Started</a>
+</div>
+<div class="card mb-5" id="team">
+<p class="card-header h3">About <strong>Rich Bibby</strong></p>
+<div class="card-body">
+<div class="container p-0">
+<div class="row">
+<div class="col-12 col-md-3 align-self-center">
+<a href="/team/rbibby/"><img loading="lazy" src="https://files.realpython.com/media/author-rbibby.afaa2d14b4ab.jpeg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/author-rbibby.afaa2d14b4ab.jpeg&amp;w=100&amp;sig=d487a8e7ed15ed704cab0e1c377cc204db4eb95b 100w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/author-rbibby.afaa2d14b4ab.jpeg&amp;w=200&amp;sig=21da33a91ba1c869bf810b06e4bae3aac2cb5a87 200w, https://files.realpython.com/media/author-rbibby.afaa2d14b4ab.jpeg 400w" sizes="25vw" class="d-block d-md-none rounded-circle img-fluid w-33 mb-0 mx-auto" alt="Rich Bibby"></a>
+<a href="/team/rbibby/"><img loading="lazy" src="https://files.realpython.com/media/author-rbibby.afaa2d14b4ab.jpeg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/author-rbibby.afaa2d14b4ab.jpeg&amp;w=100&amp;sig=d487a8e7ed15ed704cab0e1c377cc204db4eb95b 100w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/author-rbibby.afaa2d14b4ab.jpeg&amp;w=200&amp;sig=21da33a91ba1c869bf810b06e4bae3aac2cb5a87 200w, https://files.realpython.com/media/author-rbibby.afaa2d14b4ab.jpeg 400w" sizes="25vw" class="d-none d-md-block rounded-circle img-fluid w-100 mb-0" alt="Rich Bibby"></a>
+</div>
+<div class="col mt-3">
+<p>Rich is an avid Pythonista and a video instructor at Real Python. He is also a Network Engineer using Python to automate the management of a large network infrastructure. He lives in Dubai, UAE, with his wife and daughter plus a Miniature Schnauzer.</p>
+<a href="/team/rbibby/" class="card-link">» More about Rich</a>
+</div>
+</div>
+</div>
+</div>
+<hr class="my-0">
+<div class="card-body pb-0">
+<div class="container">
+<div class="row">
+<p><em>Each tutorial at Real Python is created by a team of developers so that it meets our high quality standards. The team members who worked on this tutorial are:</em></p>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/dbader/"><img loading="lazy" src="https://files.realpython.com/media/daniel-square.d58bf4388750.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/daniel-square.d58bf4388750.jpg&amp;w=250&amp;sig=0f6c5ef7f5786b2a198fe2d700695467601836fe 250w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/daniel-square.d58bf4388750.jpg&amp;w=500&amp;sig=6d44e31ac8b0ed5d7bf09163b66e9374d79b7256 500w, https://files.realpython.com/media/daniel-square.d58bf4388750.jpg 1000w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Dan Bader"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/dbader/" class="card-link"><p>Dan</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/tmoore/"><img loading="lazy" src="https://files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG&amp;w=77&amp;sig=123b8cbeaee9b9fddbe41452e10fa0a05cfad2e0 77w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG&amp;w=154&amp;sig=46886020559cd3c87306f74c6c1bc5ae8b156e62 154w, https://files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG 308w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Tappan Moore"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/tmoore/" class="card-link"><p>Tappan</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/jjablonski/"><img loading="lazy" src="https://files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg&amp;w=200&amp;sig=d779dbceba743afb659648000525a6a71656ae98 200w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg&amp;w=400&amp;sig=99ce401a9a219f6b406309e90925252be1900dfc 400w, https://files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg 800w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Joanna Jablonski"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/jjablonski/" class="card-link"><p>Joanna</p></a>
+</div>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/chansen/"><img loading="lazy" src="https://files.realpython.com/media/chad-hansen.1ecb1de02094_1.00545ee43c80.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/chad-hansen.1ecb1de02094_1.00545ee43c80.jpg&amp;w=334&amp;sig=dbf391028fc70a24a82b896083b9118e5a3bb8fe 334w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/chad-hansen.1ecb1de02094_1.00545ee43c80.jpg&amp;w=668&amp;sig=8489a7a49ec864404e063244b410a688e8640a68 668w, https://files.realpython.com/media/chad-hansen.1ecb1de02094_1.00545ee43c80.jpg 1336w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Chad Hansen"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/chansen/" class="card-link"><p>Chad</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/bsolomon/"><img loading="lazy" src="https://files.realpython.com/media/bsolomon.2a5a05833ac0.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/bsolomon.2a5a05833ac0.jpg&amp;w=234&amp;sig=853eac2d1d5be58ddd0495dc2a21d9e96519fdf6 234w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/bsolomon.2a5a05833ac0.jpg&amp;w=469&amp;sig=25311cd6c3fabe7bfe4e314ea4c30a84b3b5258f 469w, https://files.realpython.com/media/bsolomon.2a5a05833ac0.jpg 938w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Brad Solomon"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/bsolomon/" class="card-link"><p>Brad</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/asantos/"><img loading="lazy" src="https://files.realpython.com/media/asantos-avatar.888c78fffab3.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/asantos-avatar.888c78fffab3.jpg&amp;w=175&amp;sig=a095ca193d3f40e73e6921403c1c43e48c9a4bdc 175w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/asantos-avatar.888c78fffab3.jpg&amp;w=350&amp;sig=28c0dc29376daf4ca29d5f47b3708b873c21af76 350w, https://files.realpython.com/media/asantos-avatar.888c78fffab3.jpg 700w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Aldren Santos"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/asantos/" class="card-link"><p>Aldren</p></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-5">
+<h3 id="viewer-comments">Participant Comments</h3>
+<div class="">
+<div id="comment-829380ae-0dea-41a2-bff9-2b45fee9116c" class="border rounded p-3 mb-1">
+<div class="container">
+<div class="row">
+<div class="col-2 col-md-1 p-0 align-self-center">
+<img loading="lazy" class="align-self-center rounded-circle img-fluid w-100" src="https://www.gravatar.com/avatar/22d7a6c4d711a2b7b6828e1d622ca144?s=500&amp;d=mp">
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p><strong>Chasp</strong><span class="text-muted"> on <a class="text-muted" href="#comment-829380ae-0dea-41a2-bff9-2b45fee9116c">Nov. 26, 2019</a></span></p>
+</div>
+</div>
+</div>
+<div class="my-3 comment-body"><p>Succinct and helpful.
+Really like Rich&rsquo;s style of explanation.
+Learned something new!</p></div>
+</div>
+<div id="comment-671519fe-42ed-4a5a-9708-bd86b941fdfb" class="border rounded p-3 mb-1">
+<div class="container">
+<div class="row">
+<div class="col-2 col-md-1 p-0 align-self-center">
+<img loading="lazy" class="align-self-center rounded-circle img-fluid w-100" src="https://www.gravatar.com/avatar/3ed341a7d5a13b9b13990f287ef677b5?s=500&amp;d=mp">
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p><strong>Dev</strong><span class="text-muted"> on <a class="text-muted" href="#comment-671519fe-42ed-4a5a-9708-bd86b941fdfb">Nov. 28, 2019</a></span></p>
+</div>
+</div>
+</div>
+<div class="my-3 comment-body"><p>Very easy to follow</p></div>
+</div>
+<div id="comment-a2d4a39e-475e-4fec-9e7d-0985dc916daf" class="border rounded p-3 mb-1">
+<div class="container">
+<div class="row">
+<div class="col-2 col-md-1 p-0 align-self-center">
+<img loading="lazy" class="align-self-center rounded-circle img-fluid w-100" src="https://www.gravatar.com/avatar/14853e579141c5a1622f35bc18920d54?s=500&amp;d=mp">
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p><strong>Anonymous</strong><span class="text-muted"> on <a class="text-muted" href="#comment-a2d4a39e-475e-4fec-9e7d-0985dc916daf">Nov. 29, 2019</a></span></p>
+</div>
+</div>
+</div>
+<div class="my-3 comment-body"><p>Thorough &amp; covers all the use cases.</p></div>
+</div>
+</div>
+</div>
+<p class="mb-5"><a href="/courses/">« Browse All Courses</a></p>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="text-center text-muted">© 2012–2020 Real Python ⋅ <a style="text-decoration: none;" href="/privacy-policy/">Privacy Policy</a>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="/static/jquery.min.220afd743d9e.js"></script>
+<script src="/static/popper.min.1022eaf388cc.js"></script>
+<script src="/static/bootstrap.min.61f338f870fc.js"></script>
+<script src="/static/repl-toggle.366cb6d72340.js"></script>
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+</body>
+</html>

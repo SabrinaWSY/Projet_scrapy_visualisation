@@ -1,0 +1,406 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://files.realpython.com" rel="preconnect">
+<title>Object-Oriented Programming (OOP) With Python (Learning Path) – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="With this learning path you&#39;ll get a solid grasp of the fundamentals of OOP in Python and how you can use this programming paradigm to make your programs easier to write and maintain.">
+<meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/gfonts/font.32be62914940.css">
+<link rel="stylesheet" href="/static/realpython.min.02b677b0fce9.css">
+<link rel="canonical" href="https://realpython.com/learning-paths/object-oriented-programming-oop-python/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg">
+<meta property="og:image" content="https://files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="Object-Oriented Programming (OOP) With Python (Learning Path) – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/learning-paths/object-oriented-programming-oop-python/">
+<meta property="og:description" content="With this learning path you&#39;ll get a solid grasp of the fundamentals of OOP in Python and how you can use this programming paradigm to make your programs easier to write and maintain.">
+<link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="/manifest.json">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+  
+    ga('set', 'anonymizeIp', true);
+  
+  
+  ga('send', 'pageview');
+  
+</script>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column">
+<div class="container flex-row">
+<a class="navbar-brand" href="/">
+<img src="/static/real-python-logo.893c30edea53.svg" height="40" class="d-inline-block align-top" alt="Real Python">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-2 flex-fill">
+<li class="nav-item">
+<a class="nav-link" href="/start-here/">Start&nbsp;Here</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap"></span> Learn Python
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+<a class="dropdown-item" href="/" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and tutorials</small></a>
+<a class="dropdown-item" href="/courses/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-film"></i> Video Courses →<br><small class="text-secondary">Step-by-step video lessons</small></a>
+<a class="dropdown-item" href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+<a class="dropdown-item" href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+<a class="dropdown-item" href="/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack"></i> Community →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+<a class="dropdown-item pb-3" href="/tutorials/all/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags"></i> Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+<a class="dropdown-item border-top" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> Unlock All Content</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Store
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> RP Membership</a>
+<a class="dropdown-item" href="/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+<a class="dropdown-item" href="/podcasts/rpp/">Python Podcast</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+<a class="dropdown-item" href="/team/">Meet the Team</a>
+<a class="dropdown-item" href="/write-for-us/">Become a Tutorial Author</a>
+<a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+</div>
+</li>
+</ul>
+<div class="d-block d-xl-none">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search"></i></span></a>
+</li>
+</ul>
+</div>
+ <div class="d-none d-xl-flex align-items-center mr-2">
+<form class="form-inline" action="/search" method="GET">
+<i class="fa fa-search fa-fw text-muted position-absolute pl-2"></i>
+<input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" name="q">
+<input type="hidden" name="_from" value="nav">
+</form>
+</div>
+<ul class="navbar-nav">
+<li class="nav-item form-inline">
+<a class="ml-2 ml-lg-0 btn btn-sm btn-primary px-3" href="/account/join/">Join</a>
+</li>
+<li class="nav-item">
+<a class="btn text-light" href="/account/login/">Sign&#8209;In</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+<div class="row justify-content-center">
+<div class="col-md-10 col-lg-8 article">
+<div class="article-body page-body">
+<h1 class="text-center mb-1">Object-Oriented Programming (OOP) With Python</h1>
+<p class="text-center text-muted mt-0 mb-3"><a href="/learning-paths/" class="text-muted">Learning Path</a> ⋅ <strong>Skills:</strong> OOP Fundamentals, Classes &amp; Objects, Methods</p>
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="OOP in Python 3" src="https://files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg" width="1920" height="1080" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg&amp;w=480&amp;sig=de2e7c1e545e53d220fc57dcf8c1c43906e6c997 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg&amp;w=960&amp;sig=b47969c1efe592512c6b037f04417bdc92e791d1 960w, https://files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg 1920w" sizes="75vw">
+</figure>
+<p><strong>Object-oriented Programming</strong>, or OOP for short, is a programming paradigm which provides a means of structuring programs so that properties and behaviors are bundled into individual objects.</p>
+<p>With this learning path you&rsquo;ll get a solid grasp of the fundamentals of OOP in Python and how you can use this programming paradigm to make your programs easier to write and maintain.</p>
+<h2 class="mb-0 mt-5">Object-Oriented Programming (OOP) With Python</h2>
+<p class="text-muted"><a href="/learning-paths/" class="text-muted">Learning Path</a> ⋅ 8 Resources</p>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/intro-object-oriented-programming-oop-python/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg&amp;w=480&amp;sig=de2e7c1e545e53d220fc57dcf8c1c43906e6c997 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg&amp;w=960&amp;sig=b47969c1efe592512c6b037f04417bdc92e791d1 960w, https://files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg 1920w" alt="OOP in Python 3"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/intro-object-oriented-programming-oop-python/" class="stretched-link"><h3 class="my-0 h4">Intro to Object-Oriented Programming (OOP) in Python</h3></a>
+<p class="small mb-0 text-muted">In this video course, you&#39;ll learn the fundamentals of object-oriented programming (OOP) in Python and how to work with classes, objects, and constructors.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-basics.f9ccb38f5050.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐ Basics)" title="(⭐ Basics)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/pythonic-oop-string-conversion-__repr__-vs-__str__/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/13-Python-Projects-for-Intermediate-Developers_Watermarked.bb98d44bdb10.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/13-Python-Projects-for-Intermediate-Developers_Watermarked.bb98d44bdb10.jpg&amp;w=480&amp;sig=28283997fa497bdbb07c82f5f0ecd5d0b963e180 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/13-Python-Projects-for-Intermediate-Developers_Watermarked.bb98d44bdb10.jpg&amp;w=960&amp;sig=ae7ceacdecc239eca5086811df693bf4b590b27c 960w, https://files.realpython.com/media/13-Python-Projects-for-Intermediate-Developers_Watermarked.bb98d44bdb10.jpg 1920w" alt="13 Project Ideas for Intermediate Python Developers"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/pythonic-oop-string-conversion-__repr__-vs-__str__/" class="stretched-link"><h3 class="my-0 h4">Pythonic OOP String Conversion: __repr__ vs __str__</h3></a>
+<p class="small mb-0 text-muted">In this video series you&#39;ll do a deep dive on how Python&#39;s to-string conversion using the __repr__ and __str__ &quot;magic methods&quot; works and how you can add implement them in your own classes and objects.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-super/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/The-Super-Function-in-Python_Watermarked.58312d5835f7.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/The-Super-Function-in-Python_Watermarked.58312d5835f7.jpg&amp;w=480&amp;sig=5890348244fdbc2c7ce031e7cca9d0784f1f0a80 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/The-Super-Function-in-Python_Watermarked.58312d5835f7.jpg&amp;w=960&amp;sig=1843347f12355916ca1c5a08b7f72796aa561110 960w, https://files.realpython.com/media/The-Super-Function-in-Python_Watermarked.58312d5835f7.jpg 1920w" alt="Supercharge Your Classes With Python super()"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-super/" class="stretched-link"><h3 class="my-0 h4">Using Python&#39;s &quot;super()&quot; Function</h3></a>
+<p class="small mb-0 text-muted">In this step-by-step tutorial, you will learn how to leverage single and multiple inheritance in your object-oriented application to supercharge your classes with Python super().</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/inheritance-composition-python/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg&amp;w=480&amp;sig=14640bf41cd9876a36d30f89ae5715186f28285e 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg&amp;w=960&amp;sig=d595c1b681a696c31a40baaf6bc8d1cdf673b641 960w, https://files.realpython.com/media/Inheritance-vs-Composition-in-Python_Watermarked_1.aec726368a97.jpg 1920w" alt="Inheritance and Composition: A Python OOP Guide"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/inheritance-composition-python/" class="stretched-link"><h3 class="my-0 h4">Inheritance and Composition: A Python OOP Guide</h3></a>
+<p class="small mb-0 text-muted">Learn about inheritance and composition in Python. You&#39;ll improve your object-oriented programming (OOP) skills by understanding how to use inheritance and composition and how to leverage them in their design.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/python-method-types/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg&amp;w=480&amp;sig=de2e7c1e545e53d220fc57dcf8c1c43906e6c997 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg&amp;w=960&amp;sig=b47969c1efe592512c6b037f04417bdc92e791d1 960w, https://files.realpython.com/media/Object-Oriented-Programming-OOP-in-Python-3_Watermarked.0d29780806d5.jpg 1920w" alt="OOP in Python 3"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/python-method-types/" class="stretched-link"><h3 class="my-0 h4">OOP Method Types in Python: @classmethod vs @staticmethod vs Instance Methods</h3></a>
+<p class="small mb-0 text-muted">What’s the difference between @classmethod, @staticmethod, and “plain/regular” instance methods in Python? You’ll know the answer after watching this video course.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/operator-function-overloading/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/operator-function-overloading-title.9cea29eb0d51.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/operator-function-overloading-title.9cea29eb0d51.jpg&amp;w=480&amp;sig=2ab797983211663cd807d2bcb196b40b6831f98e 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/operator-function-overloading-title.9cea29eb0d51.jpg&amp;w=960&amp;sig=2b07a1c36f05da97f9b5bfe37321a59ef264f079 960w, https://files.realpython.com/media/operator-function-overloading-title.9cea29eb0d51.jpg 1920w" alt="Operator and Function Overloading in Python"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/operator-function-overloading/" class="stretched-link"><h3 class="my-0 h4">Operator and Function Overloading in Custom Python Classes</h3></a>
+<p class="small mb-0 text-muted">How to overload built-in functions and operators in your custom Python classes in order to make your code more Pythonic.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-data-classes/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/python37-data-classes-title.26e14d3534aa.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/python37-data-classes-title.26e14d3534aa.jpg&amp;w=480&amp;sig=f5c59f149307fbf9603f5e5c2b015f307855c870 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/python37-data-classes-title.26e14d3534aa.jpg&amp;w=960&amp;sig=193790c96f815feb3563d4e02a6ba0f52c04d338 960w, https://files.realpython.com/media/python37-data-classes-title.26e14d3534aa.jpg 1920w" alt="Data Classes in Python 3.7 (And Above)"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-data-classes/" class="stretched-link"><h3 class="my-0 h4">The Ultimate Guide to Data Classes in Python 3.7</h3></a>
+<p class="small mb-0 text-muted">Data classes are one of the new features of Python 3.7. With data classes you do not have to write boilerplate code to get proper initialization, representation and comparisons for your objects.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+ <div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-metaclasses/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/python-metaclasses-title.d4c650dff96f.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/python-metaclasses-title.d4c650dff96f.jpg&amp;w=480&amp;sig=615af860daf1f7f7e8e761bca807b68fa077432b 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/python-metaclasses-title.d4c650dff96f.jpg&amp;w=960&amp;sig=a4ef36d229f8da1b6885b454f7d74bfef73b1c57 960w, https://files.realpython.com/media/python-metaclasses-title.d4c650dff96f.jpg 1920w" alt="Python Metaclasses and Metaprogramming"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-metaclasses/" class="stretched-link"><h3 class="my-0 h4">Python Metaclasses</h3></a>
+<p class="small mb-0 text-muted">How Python&#39;s metaclasses work as an OOP concept, what they are good for—and why you might want to avoid them in your own programs.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-advanced.c7aff78238cc.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐⭐ Advanced)" title="(⭐⭐⭐ Advanced)">
+</div>
+</div>
+</div>
+<p class="muted small text-center mt-2 mb-0"><a href="https://feedback.realpython.com/realpython-com/?d=eyJwIjoicmVhbHB5dGhvbi1jb20iLCJzaWciOiJxcShrOT5jez9YX3I0blFIb2ZSTEw3fDdMc2J8MDxYd3xSM1JiekFYIiwidCI6Ik9iamVjdC1PcmllbnRlZCBQcm9ncmFtbWluZyAoT09QKSBXaXRoIFB5dGhvbiAoTGVhcm5pbmcgUGF0aCkiLCJ1IjoiL2xlYXJuaW5nLXBhdGhzL29iamVjdC1vcmllbnRlZC1wcm9ncmFtbWluZy1vb3AtcHl0aG9uLyJ9" target="_blank"><i class="fa fa-commenting-o" aria-hidden="true"></i> Got feedback on this learning path?</a></p>
+<p class="mt-3"><a href="/learning-paths/">« Browse All Learning Paths</a></p>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="text-center text-muted">© 2012–2020 Real Python ⋅ <a style="text-decoration: none;" href="/privacy-policy/">Privacy Policy</a>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="/static/jquery.min.220afd743d9e.js"></script>
+<script src="/static/popper.min.1022eaf388cc.js"></script>
+<script src="/static/bootstrap.min.61f338f870fc.js"></script>
+<script src="/static/repl-toggle.366cb6d72340.js"></script>
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+</body>
+</html>

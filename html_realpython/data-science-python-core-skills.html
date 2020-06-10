@@ -1,0 +1,550 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://files.realpython.com" rel="preconnect">
+<title>Data Science With Python Core Skills (Learning Path) – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="In this learning path you&#39;ll cover a range of core skills that any Python data scientist worth their salt should know.">
+<meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/gfonts/font.32be62914940.css">
+<link rel="stylesheet" href="/static/realpython.min.02b677b0fce9.css">
+<link rel="canonical" href="https://realpython.com/learning-paths/data-science-python-core-skills/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/Python-Data-Science_Watermarked.2789459dd138.jpg">
+<meta property="og:image" content="https://files.realpython.com/media/Python-Data-Science_Watermarked.2789459dd138.jpg">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="Data Science With Python Core Skills (Learning Path) – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/learning-paths/data-science-python-core-skills/">
+<meta property="og:description" content="In this learning path you&#39;ll cover a range of core skills that any Python data scientist worth their salt should know.">
+<link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="/manifest.json">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+  
+    ga('set', 'anonymizeIp', true);
+  
+  
+  ga('send', 'pageview');
+  
+</script>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column">
+<div class="container flex-row">
+<a class="navbar-brand" href="/">
+<img src="/static/real-python-logo.893c30edea53.svg" height="40" class="d-inline-block align-top" alt="Real Python">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-2 flex-fill">
+<li class="nav-item">
+<a class="nav-link" href="/start-here/">Start&nbsp;Here</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap"></span> Learn Python
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+<a class="dropdown-item" href="/" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and tutorials</small></a>
+<a class="dropdown-item" href="/courses/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-film"></i> Video Courses →<br><small class="text-secondary">Step-by-step video lessons</small></a>
+<a class="dropdown-item" href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+<a class="dropdown-item" href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+<a class="dropdown-item" href="/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack"></i> Community →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+<a class="dropdown-item pb-3" href="/tutorials/all/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags"></i> Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+<a class="dropdown-item border-top" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> Unlock All Content</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Store
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> RP Membership</a>
+<a class="dropdown-item" href="/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+<a class="dropdown-item" href="/podcasts/rpp/">Python Podcast</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+<a class="dropdown-item" href="/team/">Meet the Team</a>
+<a class="dropdown-item" href="/write-for-us/">Become a Tutorial Author</a>
+<a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+</div>
+</li>
+</ul>
+<div class="d-block d-xl-none">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search"></i></span></a>
+</li>
+</ul>
+</div>
+<div class="d-none d-xl-flex align-items-center mr-2">
+<form class="form-inline" action="/search" method="GET">
+<i class="fa fa-search fa-fw text-muted position-absolute pl-2"></i>
+ <input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" name="q">
+<input type="hidden" name="_from" value="nav">
+</form>
+</div>
+<ul class="navbar-nav">
+<li class="nav-item form-inline">
+<a class="ml-2 ml-lg-0 btn btn-sm btn-primary px-3" href="/account/join/">Join</a>
+</li>
+<li class="nav-item">
+<a class="btn text-light" href="/account/login/">Sign&#8209;In</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+<div class="row justify-content-center">
+<div class="col-md-10 col-lg-8 article">
+<div class="article-body page-body">
+<h1 class="text-center mb-1">Data Science With Python Core Skills</h1>
+<p class="text-center text-muted mt-0 mb-3"><a href="/learning-paths/" class="text-muted">Learning Path</a> ⋅ <strong>Skills:</strong> Pandas, NumPy, Data Cleaning, Data Visualization</p>
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Python Data Science Artwork" src="https://files.realpython.com/media/Python-Data-Science_Watermarked.2789459dd138.jpg" width="1920" height="1080" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Data-Science_Watermarked.2789459dd138.jpg&amp;w=480&amp;sig=f899f2a79cb8bf877f4738170216b5117586c851 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Data-Science_Watermarked.2789459dd138.jpg&amp;w=960&amp;sig=470f608e9adc25142652c0f7be409de969604b6b 960w, https://files.realpython.com/media/Python-Data-Science_Watermarked.2789459dd138.jpg 1920w" sizes="75vw">
+</figure>
+<p>In this learning path you&rsquo;ll cover a range of core skills that any Python data scientist worth their salt should know.</p>
+<h3 id="additional-resources">Additional Resources</h3>
+<ul>
+<li><a href="/tutorials/data-science/">Data Science Topic on Real Python</a></li>
+<li><a href="/tutorials/machine-learning/">Machine Learning Topic on Real Python</a></li>
+</ul>
+<h2 class="mb-0 mt-5">Data Science With Python Core Skills</h2>
+<p class="text-muted"><a href="/learning-paths/" class="text-muted">Learning Path</a> ⋅ 15 Resources</p>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/using-jupyter-notebooks/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Introduction-to-Jupyter-Notebooks_Watermarked.16bb2cf21ca5.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Introduction-to-Jupyter-Notebooks_Watermarked.16bb2cf21ca5.jpg&amp;w=480&amp;sig=ee227e6aa194dea181949e0901c2e87f5f7cc14c 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Introduction-to-Jupyter-Notebooks_Watermarked.16bb2cf21ca5.jpg&amp;w=960&amp;sig=4bf2a89f9f6f27303462bab6105b0aa7b9accfda 960w, https://files.realpython.com/media/Introduction-to-Jupyter-Notebooks_Watermarked.16bb2cf21ca5.jpg 1920w" alt="Jupyter Notebook: An Introduction"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/using-jupyter-notebooks/" class="stretched-link"><h3 class="my-0 h4">Using Jupyter Notebooks</h3></a>
+<p class="small mb-0 text-muted">In this step-by-step course, you learn how to get started with The Jupyter Notebook, an open source web application that you can use to create and share documents that contain live code, equations, visualizations, and text.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-basics.f9ccb38f5050.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐ Basics)" title="(⭐ Basics)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/pandas-python-explore-dataset/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Intro-to-Exploratory-Data-Analysis-With-Pandas_Watermarked.81a7d7df468f.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Intro-to-Exploratory-Data-Analysis-With-Pandas_Watermarked.81a7d7df468f.jpg&amp;w=480&amp;sig=789fb7504a5df66a3ec5f1677ed5f1ee329d3008 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Intro-to-Exploratory-Data-Analysis-With-Pandas_Watermarked.81a7d7df468f.jpg&amp;w=960&amp;sig=c8c0f042bfba7a121eaaf7343f0f27ffb68082f8 960w, https://files.realpython.com/media/Intro-to-Exploratory-Data-Analysis-With-Pandas_Watermarked.81a7d7df468f.jpg 1920w" alt="Using Pandas and Python to Explore Your Dataset"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/pandas-python-explore-dataset/" class="stretched-link"><h3 class="my-0 h4">Using Pandas and Python to Explore Your Dataset</h3></a>
+<p class="small mb-0 text-muted">Learn how to start exploring a dataset with Pandas and Python. You&#39;ll learn how to access specific rows and columns to answer questions about your data. You&#39;ll also see how to handle missing values and prepare to visualize your dataset in a Jupyter notebook.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-basics.f9ccb38f5050.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐ Basics)" title="(⭐ Basics)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/reading-and-writing-csv-files/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Python-Text-Parsing_Watermarked.5ac48b25acf2.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Text-Parsing_Watermarked.5ac48b25acf2.jpg&amp;w=480&amp;sig=eeba098788dd555b97d90d8b0427aaa53dbd5b4e 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Text-Parsing_Watermarked.5ac48b25acf2.jpg&amp;w=960&amp;sig=8ba3e0d74f91f82834cd5c9d0e3c665a6013885c 960w, https://files.realpython.com/media/Python-Text-Parsing_Watermarked.5ac48b25acf2.jpg 1920w" alt="Python CSV Parsing"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/reading-and-writing-csv-files/" class="stretched-link"><h3 class="my-0 h4">Reading and Writing CSV Files</h3></a>
+<p class="small mb-0 text-muted">This short course covers how to read and write data to CSV files using Python&#39;s built in &quot;csv&quot; module and the &quot;pandas&quot; library.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-basics.f9ccb38f5050.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐ Basics)" title="(⭐ Basics)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/working-json-data-python/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Working-With-JSON-Data-in-Python_Watermarked.66a8fdcb8859.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Working-With-JSON-Data-in-Python_Watermarked.66a8fdcb8859.jpg&amp;w=480&amp;sig=4dba347516ebe6534bad09a4969765ecbf6c716f 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Working-With-JSON-Data-in-Python_Watermarked.66a8fdcb8859.jpg&amp;w=960&amp;sig=997701f47dbef585b55d0d74d1acdd6b0647d253 960w, https://files.realpython.com/media/Working-With-JSON-Data-in-Python_Watermarked.66a8fdcb8859.jpg 1920w" alt="Working With JSON Data in Python"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/working-json-data-python/" class="stretched-link"><h3 class="my-0 h4">Working With JSON Data in Python</h3></a>
+<p class="small mb-0 text-muted">Learn how to work with Python&#39;s built-in &quot;json&quot; module to serialize the data in your programs into JSON format. Then, you&#39;ll deserialize some JSON from an online API and convert it into Python objects.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-basics.f9ccb38f5050.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐ Basics)" title="(⭐ Basics)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/pandas-dataframes-101/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Python-Data-Science_Watermarked.2789459dd138.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Data-Science_Watermarked.2789459dd138.jpg&amp;w=480&amp;sig=f899f2a79cb8bf877f4738170216b5117586c851 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Data-Science_Watermarked.2789459dd138.jpg&amp;w=960&amp;sig=470f608e9adc25142652c0f7be409de969604b6b 960w, https://files.realpython.com/media/Python-Data-Science_Watermarked.2789459dd138.jpg 1920w" alt="Python Data Science Artwork"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/pandas-dataframes-101/" class="stretched-link"><h3 class="my-0 h4">Pandas DataFrames 101</h3></a>
+<p class="small mb-0 text-muted">Learn the basics of working with the Data Frame data structure in Pandas. We will touch on how to create new columns from existing data, delete unneeded data, how to import data from a CSV file as well as a few examples of group-bys. We will be using basketball data from basketball-reference.com</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-basics.f9ccb38f5050.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐ Basics)" title="(⭐ Basics)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/python-plotting-matplotlib/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Python_Plotting_With_Matplotlib_Watermark.610acdacc476.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python_Plotting_With_Matplotlib_Watermark.610acdacc476.jpg&amp;w=480&amp;sig=8bc9d191fc3d7bdbadf7bb82936c6876bb0d4b17 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python_Plotting_With_Matplotlib_Watermark.610acdacc476.jpg&amp;w=960&amp;sig=d5814d09382cfd4c649a63f3f3f22d112c06812b 960w, https://files.realpython.com/media/Python_Plotting_With_Matplotlib_Watermark.610acdacc476.jpg 1920w" alt="Python Matplotlib"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/python-plotting-matplotlib/" class="stretched-link"><h3 class="my-0 h4">Python Plotting With Matplotlib (Guide)</h3></a>
+<p class="small mb-0 text-muted">In this beginner-friendly course, you&#39;ll learn about plotting in Python with matplotlib by looking at the theory and following along with practical examples.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-data-cleaning-numpy-pandas/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/data-cleaning-numpy-pandas.0897550e8675.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/data-cleaning-numpy-pandas.0897550e8675.jpg&amp;w=480&amp;sig=107a120367aa7c6c3f23b64232b5098e131087d6 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/data-cleaning-numpy-pandas.0897550e8675.jpg&amp;w=960&amp;sig=901fa6747cbc095a7fe97ca58458302612c5c60e 960w, https://files.realpython.com/media/data-cleaning-numpy-pandas.0897550e8675.jpg 1920w" alt="Python Data Cleaning With NumPy and Pandas"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-data-cleaning-numpy-pandas/" class="stretched-link"><h3 class="my-0 h4">Pythonic Data Cleaning With NumPy and Pandas</h3></a>
+<p class="small mb-0 text-muted">A tutorial to get you started with basic data cleaning techniques in Python using Pandas and NumPy.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/idiomatic-pandas-tricks-features-you-may-not-know/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Python-Pandas-10-Tricks--Features-You-May-Not-Know-Watermark.e58bb5ce9835.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Pandas-10-Tricks--Features-You-May-Not-Know-Watermark.e58bb5ce9835.jpg&amp;w=480&amp;sig=04c14b4948a5b98eb558b1789ef348e9b038d749 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Pandas-10-Tricks--Features-You-May-Not-Know-Watermark.e58bb5ce9835.jpg&amp;w=960&amp;sig=ecc3a818a495a55eb361092f4d345469431f631a 960w, https://files.realpython.com/media/Python-Pandas-10-Tricks--Features-You-May-Not-Know-Watermark.e58bb5ce9835.jpg 1920w" alt="Pandas Tricks"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/idiomatic-pandas-tricks-features-you-may-not-know/" class="stretched-link"><h3 class="my-0 h4">Idiomatic Pandas: Tricks &amp; Features You May Not Know</h3></a>
+<p class="small mb-0 text-muted">In this course you&#39;ll see how to use some lesser-used but idiomatic Pandas capabilities that lend your code better readability, versatility, and speed.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/interactive-data-visualization-python-bokeh/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Interactive-Visualization-w-Bokeh-Watermark.cf07569335d5.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Interactive-Visualization-w-Bokeh-Watermark.cf07569335d5.jpg&amp;w=480&amp;sig=cb4b63f77b978b65460fcd171b54c4c95e6826f6 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Interactive-Visualization-w-Bokeh-Watermark.cf07569335d5.jpg&amp;w=960&amp;sig=1f37d0cea295e63d25612cd38a1d3bb15a5202bf 960w, https://files.realpython.com/media/Interactive-Visualization-w-Bokeh-Watermark.cf07569335d5.jpg 1920w" alt="Interactive Data Visualization in Python With Bokeh"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/interactive-data-visualization-python-bokeh/" class="stretched-link"><h3 class="my-0 h4">Interactive Data Visualization in Python With Bokeh</h3></a>
+<p class="small mb-0 text-muted">This course will get you up and running with Bokeh, using examples and a real-world dataset. You&#39;ll learn how to visualize your data, customize and organize your visualizations, and add interactivity.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/python-histograms/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Python_Histograms_Watermark.c4daed2c983b.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python_Histograms_Watermark.c4daed2c983b.jpg&amp;w=480&amp;sig=783b873487def2aea3fdfe35ab6dc5bfdb85bbde 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python_Histograms_Watermark.c4daed2c983b.jpg&amp;w=960&amp;sig=b12228170000458357a92f522c8541245d0c5599 960w, https://files.realpython.com/media/Python_Histograms_Watermark.c4daed2c983b.jpg 1920w" alt="Python Histogram Plots"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/python-histograms/" class="stretched-link"><h3 class="my-0 h4">Python Histogram Plotting: NumPy, Matplotlib, Pandas &amp; Seaborn</h3></a>
+<p class="small mb-0 text-muted">In this course, you&#39;ll be equipped to make production-quality, presentation-ready Python histogram plots with a range of choices and features. It&#39;s your one-stop shop for constructing and manipulating histograms with Python&#39;s scientific stack.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-statistics/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Descriptive-Statistics-in-Python_Watermarked.fec81e9a41f9.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Descriptive-Statistics-in-Python_Watermarked.fec81e9a41f9.jpg&amp;w=480&amp;sig=2ef5c66312a0c6033d7e4aaa8993640b8864bd9f 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Descriptive-Statistics-in-Python_Watermarked.fec81e9a41f9.jpg&amp;w=960&amp;sig=274c90a9fc73c1aafccc437c2db2c7ba12bc4c4c 960w, https://files.realpython.com/media/Descriptive-Statistics-in-Python_Watermarked.fec81e9a41f9.jpg 1920w" alt="Python Statistics Fundamentals: How to Describe Your Data"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-statistics/" class="stretched-link"><h3 class="my-0 h4">Python Statistics Fundamentals: How to Describe Your Data</h3></a>
+<p class="small mb-0 text-muted">In this step-by-step tutorial, you&#39;ll learn the fundamentals of descriptive statistics and how to calculate them in Python. You&#39;ll find out how to describe, summarize, and represent your data visually using NumPy, SciPy, Pandas, Matplotlib, and the built-in Python statistics library.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/generating-random-data-python/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/random_data_watermark.576078a4008d.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/random_data_watermark.576078a4008d.jpg&amp;w=480&amp;sig=f927fbb10c23385419b534a29fc33634fc15d6b6 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/random_data_watermark.576078a4008d.jpg&amp;w=960&amp;sig=e18f0aeb369120072be061aa184dd684f5b2a82c 960w, https://files.realpython.com/media/random_data_watermark.576078a4008d.jpg 1920w" alt="Generating Random Data With Python"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/generating-random-data-python/" class="stretched-link"><h3 class="my-0 h4">Generating Random Data in Python</h3></a>
+<p class="small mb-0 text-muted">You&#39;ll cover a handful of different options for generating random data in Python, and then build up to a comparison of each in terms of its level of security, versatility, purpose, and speed.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/numpy-scipy-pandas-correlation-python/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Correlation-in-NumPy-and-Correlation-in-Pandas_Watermarked.69b8c063482f.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Correlation-in-NumPy-and-Correlation-in-Pandas_Watermarked.69b8c063482f.jpg&amp;w=480&amp;sig=b01689e0dcea38ec6ead008b3173f4147a51d537 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Correlation-in-NumPy-and-Correlation-in-Pandas_Watermarked.69b8c063482f.jpg&amp;w=960&amp;sig=0f40807f90eab2bbad0ce3d6f7628c3212a23d46 960w, https://files.realpython.com/media/Correlation-in-NumPy-and-Correlation-in-Pandas_Watermarked.69b8c063482f.jpg 1920w" alt="NumPy, SciPy, and Pandas: Correlation With Python"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/numpy-scipy-pandas-correlation-python/" class="stretched-link"><h3 class="my-0 h4">NumPy, SciPy, and Pandas: Correlation With Python</h3></a>
+<p class="small mb-0 text-muted">In this tutorial, you&#39;ll learn what correlation is and how you can calculate it with Python. You&#39;ll use SciPy, NumPy, and Pandas correlation methods to calculate three different correlation coefficients. You&#39;ll also see how to visualize data, regression lines, and correlation matrices with Matplotlib.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/data-engineer-interview-questions-python/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Data-Engineer-Interview-Questions-With-Python_Watermarked.6d30e181f8ae.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Data-Engineer-Interview-Questions-With-Python_Watermarked.6d30e181f8ae.jpg&amp;w=480&amp;sig=325bc920c96ce2e70657df37b8af9fcf9a3b0504 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Data-Engineer-Interview-Questions-With-Python_Watermarked.6d30e181f8ae.jpg&amp;w=960&amp;sig=69aef7f3ee7d74771f3c2c31a15fc0adce8289e4 960w, https://files.realpython.com/media/Data-Engineer-Interview-Questions-With-Python_Watermarked.6d30e181f8ae.jpg 1920w" alt="Data Engineer Interview Questions With Python"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/data-engineer-interview-questions-python/" class="stretched-link"><h3 class="my-0 h4">Data Engineer Interview Questions</h3></a>
+<p class="small mb-0 text-muted">This tutorial will prepare you for some common questions you&#39;ll encounter during your data engineer interview. You&#39;ll learn how to answer questions about databases, ETL pipelines, and big data workflows. You&#39;ll also take a look at SQL, NoSQL, and Redis use cases and query examples.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/numpy-array-programming/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/array-programming-numpy-title.253c65038146.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/array-programming-numpy-title.253c65038146.jpg&amp;w=480&amp;sig=e2c04f8ddfc651caa1bf87055c8138dcd83b83af 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/array-programming-numpy-title.253c65038146.jpg&amp;w=960&amp;sig=a920e99b77995de44e2590f7f847fcc8df89ff11 960w, https://files.realpython.com/media/array-programming-numpy-title.253c65038146.jpg 1920w" alt="Array Programming with NumPy"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/numpy-array-programming/" class="stretched-link"><h3 class="my-0 h4">Look Ma, No For-Loops: Array Programming With NumPy</h3></a>
+<p class="small mb-0 text-muted">How to take advantage of vectorization and broadcasting so you can use NumPy to its full capacity. In this tutorial you&#39;ll see step-by-step how these advanced features in NumPy help you writer faster code.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-advanced.c7aff78238cc.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐⭐ Advanced)" title="(⭐⭐⭐ Advanced)">
+</div>
+</div>
+</div>
+<p class="muted small text-center mt-2 mb-0"><a href="https://feedback.realpython.com/realpython-com/?d=eyJwIjoicmVhbHB5dGhvbi1jb20iLCJzaWciOiJlXkNPQTs3Q2diPUpeZ0wraDVQRCFOPkB9c2I7SSVHOW0tMjl6PChnIiwidCI6IkRhdGEgU2NpZW5jZSBXaXRoIFB5dGhvbiBDb3JlIFNraWxscyAoTGVhcm5pbmcgUGF0aCkiLCJ1IjoiL2xlYXJuaW5nLXBhdGhzL2RhdGEtc2NpZW5jZS1weXRob24tY29yZS1za2lsbHMvIn0=" target="_blank"><i class="fa fa-commenting-o" aria-hidden="true"></i> Got feedback on this learning path?</a></p>
+<p class="mt-3"><a href="/learning-paths/">« Browse All Learning Paths</a></p>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="text-center text-muted">© 2012–2020 Real Python ⋅ <a style="text-decoration: none;" href="/privacy-policy/">Privacy Policy</a>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="/static/jquery.min.220afd743d9e.js"></script>
+<script src="/static/popper.min.1022eaf388cc.js"></script>
+<script src="/static/bootstrap.min.61f338f870fc.js"></script>
+<script src="/static/repl-toggle.366cb6d72340.js"></script>
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+</body>
+</html>

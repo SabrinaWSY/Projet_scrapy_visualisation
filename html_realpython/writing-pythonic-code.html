@@ -1,0 +1,473 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://files.realpython.com" rel="preconnect">
+<title>Write More Pythonic Code (Learning Path) – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="With this learning path you&#39;ll get a guided tour through Python&#39;s most valuable best practices so you can write clean, readable, and Pythonic code.">
+<meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/gfonts/font.32be62914940.css">
+<link rel="stylesheet" href="/static/realpython.min.02b677b0fce9.css">
+<link rel="canonical" href="https://realpython.com/learning-paths/writing-pythonic-code/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg">
+<meta property="og:image" content="https://files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="Write More Pythonic Code (Learning Path) – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/learning-paths/writing-pythonic-code/">
+<meta property="og:description" content="With this learning path you&#39;ll get a guided tour through Python&#39;s most valuable best practices so you can write clean, readable, and Pythonic code.">
+<link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="/manifest.json">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+  
+    ga('set', 'anonymizeIp', true);
+  
+  
+  ga('send', 'pageview');
+  
+</script>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column">
+<div class="container flex-row">
+<a class="navbar-brand" href="/">
+<img src="/static/real-python-logo.893c30edea53.svg" height="40" class="d-inline-block align-top" alt="Real Python">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-2 flex-fill">
+<li class="nav-item">
+<a class="nav-link" href="/start-here/">Start&nbsp;Here</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap"></span> Learn Python
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+<a class="dropdown-item" href="/" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and tutorials</small></a>
+<a class="dropdown-item" href="/courses/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-film"></i> Video Courses →<br><small class="text-secondary">Step-by-step video lessons</small></a>
+<a class="dropdown-item" href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+<a class="dropdown-item" href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+<a class="dropdown-item" href="/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack"></i> Community →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+<a class="dropdown-item pb-3" href="/tutorials/all/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags"></i> Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+<a class="dropdown-item border-top" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> Unlock All Content</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Store
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> RP Membership</a>
+<a class="dropdown-item" href="/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+<a class="dropdown-item" href="/podcasts/rpp/">Python Podcast</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+<a class="dropdown-item" href="/team/">Meet the Team</a>
+<a class="dropdown-item" href="/write-for-us/">Become a Tutorial Author</a>
+<a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+</div>
+</li>
+</ul>
+<div class="d-block d-xl-none">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search"></i></span></a>
+</li>
+</ul>
+</div>
+<div class="d-none d-xl-flex align-items-center mr-2">
+<form class="form-inline" action="/search" method="GET">
+<i class="fa fa-search fa-fw text-muted position-absolute pl-2"></i>
+<input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" name="q">
+<input type="hidden" name="_from" value="nav">
+</form>
+</div>
+<ul class="navbar-nav">
+<li class="nav-item form-inline">
+<a class="ml-2 ml-lg-0 btn btn-sm btn-primary px-3" href="/account/join/">Join</a>
+</li>
+<li class="nav-item">
+<a class="btn text-light" href="/account/login/">Sign&#8209;In</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+<div class="row justify-content-center">
+<div class="col-md-10 col-lg-8 article">
+<div class="article-body page-body">
+<h1 class="text-center mb-1">Write More Pythonic Code</h1>
+<p class="text-center text-muted mt-0 mb-3"><a href="/learning-paths/" class="text-muted">Learning Path</a> ⋅ <strong>Skills:</strong> Best Practices, Writing Idiomatic Python</p>
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Python Best Practices Artwork" src="https://files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg" width="1920" height="1080" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg&amp;w=480&amp;sig=0e759ea0b1b64df4459d4fd3269617adde32c010 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg&amp;w=960&amp;sig=c740c36abd2ef75a62c6dcd274f40eec1bafe9ea 960w, https://files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg 1920w" sizes="75vw">
+</figure>
+<p>With this learning path you&rsquo;ll get a guided tour through Python&rsquo;s most valuable best practices so you can write clean, readable, and Pythonic code.</p>
+<h3 id="additional-resources">Additional Resources</h3>
+<ul>
+<li><a href="https://realpython.com/tutorials/best-practices/">&ldquo;Python Best Practices&rdquo; Topic</a></li>
+</ul>
+<h2 class="mb-0 mt-5">Write More Pythonic Code</h2>
+<p class="text-muted"><a href="/learning-paths/" class="text-muted">Learning Path</a> ⋅ 14 Resources</p>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/writing-comments-python/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Writing-Comments-in-Python_Watermarked.7965c56060bc.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Writing-Comments-in-Python_Watermarked.7965c56060bc.jpg&amp;w=480&amp;sig=69ee0fb4301dc301da03cce64232348dfb3c4b50 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Writing-Comments-in-Python_Watermarked.7965c56060bc.jpg&amp;w=960&amp;sig=f84b8f816daa380c4541fd14b878223945b7d13a 960w, https://files.realpython.com/media/Writing-Comments-in-Python_Watermarked.7965c56060bc.jpg 1920w" alt="Writing Comments in Python (Guide)"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/writing-comments-python/" class="stretched-link"><h3 class="my-0 h4">Writing Comments in Python</h3></a>
+<p class="small mb-0 text-muted">Learn how to write Python comments that are clean, concise, and useful. Quickly get up to speed on what the best practices are, which types of comments it&#39;s best to avoid, and how you can practice writing cleaner comments.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/writing-beautiful-python-code-pep-8/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/PEP-8-Tutorial-Python-Code-Formatting-Guide_Watermarked.9103cf7be328.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/PEP-8-Tutorial-Python-Code-Formatting-Guide_Watermarked.9103cf7be328.jpg&amp;w=480&amp;sig=04227e1bd9c3629ad8a97bac5b14b857de79af25 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/PEP-8-Tutorial-Python-Code-Formatting-Guide_Watermarked.9103cf7be328.jpg&amp;w=960&amp;sig=6ab77029bf66a8ea07d9e6fbd159cb064747dac7 960w, https://files.realpython.com/media/PEP-8-Tutorial-Python-Code-Formatting-Guide_Watermarked.9103cf7be328.jpg 1920w" alt="How to Write Beautiful Python Code With PEP 8"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/writing-beautiful-python-code-pep-8/" class="stretched-link"><h3 class="my-0 h4">Writing Beautiful Pythonic Code With PEP 8</h3></a>
+<p class="small mb-0 text-muted">Learn how to write high-quality, readable code by using the Python style guidelines laid out in PEP 8. This course outlines the key guidelines laid out in PEP 8. It&#39;s aimed at beginner to intermediate programmers.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/how-to-write-pythonic-loops/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg&amp;w=480&amp;sig=0e759ea0b1b64df4459d4fd3269617adde32c010 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg&amp;w=960&amp;sig=c740c36abd2ef75a62c6dcd274f40eec1bafe9ea 960w, https://files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg 1920w" alt="Python Best Practices Artwork"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/how-to-write-pythonic-loops/" class="stretched-link"><h3 class="my-0 h4">How to Write Pythonic Loops</h3></a>
+<p class="small mb-0 text-muted">Make your loops more Pythonic and learn how you can get the most out of using range(), xrange(), and enumerate(). You&#39;ll also see how you can avoid having to keep track of loop indexes manually.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/using-list-comprehensions-effectively/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/13-Python-Projects-for-Intermediate-Developers_Watermarked.bb98d44bdb10.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/13-Python-Projects-for-Intermediate-Developers_Watermarked.bb98d44bdb10.jpg&amp;w=480&amp;sig=28283997fa497bdbb07c82f5f0ecd5d0b963e180 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/13-Python-Projects-for-Intermediate-Developers_Watermarked.bb98d44bdb10.jpg&amp;w=960&amp;sig=ae7ceacdecc239eca5086811df693bf4b590b27c 960w, https://files.realpython.com/media/13-Python-Projects-for-Intermediate-Developers_Watermarked.bb98d44bdb10.jpg 1920w" alt="13 Project Ideas for Intermediate Python Developers"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/using-list-comprehensions-effectively/" class="stretched-link"><h3 class="my-0 h4">Using List Comprehensions Effectively</h3></a>
+<p class="small mb-0 text-muted">This short course breaks down Python list comprehensions for you step by step. See how Python&#39;s comprehensions can be transformed from and to equivalent &quot;for&quot;-loops so you&#39;ll know exactly what&#39;s going on behind the scenes.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/python-lambda-functions/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/How-to-Use-Python-Lambda-Functions_Watermarked.2afa4f5ea5d4.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/How-to-Use-Python-Lambda-Functions_Watermarked.2afa4f5ea5d4.jpg&amp;w=480&amp;sig=d507d906bb722fb05738acc6c8cbd0616556badd 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/How-to-Use-Python-Lambda-Functions_Watermarked.2afa4f5ea5d4.jpg&amp;w=960&amp;sig=17b7b7999fb2b8f6d472106c83d096219ea1afb4 960w, https://files.realpython.com/media/How-to-Use-Python-Lambda-Functions_Watermarked.2afa4f5ea5d4.jpg 1920w" alt="How to Use Python lambda Functions"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/python-lambda-functions/" class="stretched-link"><h3 class="my-0 h4">How to Use Python Lambda Functions</h3></a>
+<p class="small mb-0 text-muted">In this step-by-step course, you&#39;ll learn about Python lambda functions. You&#39;ll see how they compare with regular functions and how you can use them in accordance with best practices.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/idiomatic-python-101/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg&amp;w=480&amp;sig=0e759ea0b1b64df4459d4fd3269617adde32c010 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg&amp;w=960&amp;sig=c740c36abd2ef75a62c6dcd274f40eec1bafe9ea 960w, https://files.realpython.com/media/Python-Best-Practices_Watermarked.0d6bf5b46881.jpg 1920w" alt="Python Best Practices Artwork"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/idiomatic-python-101/" class="stretched-link"><h3 class="my-0 h4">Idiomatic Python 101</h3></a>
+<p class="small mb-0 text-muted">Python Idioms for people coming from other languages and how to improve your idiomatic practices with Python. We will cover things to do with string concatenation, dictionary look ups, dealing with Python scripts and encoding.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/python-3-f-strings-improved-string-formatting-syntax/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Python-f-Strings-Guide_Watermark.2c8be8b1d392.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-f-Strings-Guide_Watermark.2c8be8b1d392.jpg&amp;w=480&amp;sig=4539340dc2a0bd1465e8cb986feec6f5276d512f 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-f-Strings-Guide_Watermark.2c8be8b1d392.jpg&amp;w=960&amp;sig=d5d5934d862fb3092300a73e75fc476af3bdb58d 960w, https://files.realpython.com/media/Python-f-Strings-Guide_Watermark.2c8be8b1d392.jpg 1920w" alt="F-Strings in Python 3.6"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/python-3-f-strings-improved-string-formatting-syntax/" class="stretched-link"><h3 class="my-0 h4">Python 3&#39;s f-Strings: An Improved String Formatting Syntax</h3></a>
+<p class="small mb-0 text-muted">As of Python 3.6, f-strings are a great new way to format strings. Not only are they more readable, more concise, and less prone to error than other ways of formatting, but they are also faster! By the end of this course, you&#39;ll know how and why to start using f-strings today.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/documenting-python-code/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Documenting-Python-Code_Watermarked.0b26408a1b7f.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Documenting-Python-Code_Watermarked.0b26408a1b7f.jpg&amp;w=480&amp;sig=63ac576759b8337caffd24b604d4b30816185da5 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Documenting-Python-Code_Watermarked.0b26408a1b7f.jpg&amp;w=960&amp;sig=32281a39228075d1651274605464a6b6cf021fe4 960w, https://files.realpython.com/media/Documenting-Python-Code_Watermarked.0b26408a1b7f.jpg 1920w" alt="Documenting Python Code Guide"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/documenting-python-code/" class="stretched-link"><h3 class="my-0 h4">Documenting Python Code: A Complete Guide</h3></a>
+<p class="small mb-0 text-muted">Whether you&#39;re documenting a small script or a large project, whether you&#39;re a beginner or seasoned Pythonista, this guide will cover everything you need to know.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-refactoring/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/10-Techniques-for-Simplifying-Your-Python-Code_Watermarked.d01d6875d87f.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/10-Techniques-for-Simplifying-Your-Python-Code_Watermarked.d01d6875d87f.jpg&amp;w=480&amp;sig=1e61721808f575ceb022d16ca198ca7c19fc7492 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/10-Techniques-for-Simplifying-Your-Python-Code_Watermarked.d01d6875d87f.jpg&amp;w=960&amp;sig=e2435ff6116cb17403c972d55a4ca5692e6bc535 960w, https://files.realpython.com/media/10-Techniques-for-Simplifying-Your-Python-Code_Watermarked.d01d6875d87f.jpg 1920w" alt="Refactoring Python Applications for Simplicity"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-refactoring/" class="stretched-link"><h3 class="my-0 h4">Refactoring Python Applications for Simplicity</h3></a>
+<p class="small mb-0 text-muted">In this step-by-step tutorial, you&#39;ll learn how to refactor your Python application to be simpler and more maintainable and have fewer bugs. You&#39;ll cover code metrics, refactoring tools, and common anti-patterns.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-application-layouts/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/python_application_layout_watermark.31a037620d92.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/python_application_layout_watermark.31a037620d92.jpg&amp;w=480&amp;sig=158415a6d37c5dbf832cbcdc76cdab7ab46a0b9c 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/python_application_layout_watermark.31a037620d92.jpg&amp;w=960&amp;sig=b24322b22c6efd5ce4ef14fa4ce8ebe68f953fd7 960w, https://files.realpython.com/media/python_application_layout_watermark.31a037620d92.jpg 1920w" alt="Python Application Layouts and Project Structures"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-application-layouts/" class="stretched-link"><h3 class="my-0 h4">Python Application Layouts: A Reference</h3></a>
+<p class="small mb-0 text-muted">A reference guide to common Python application layouts and project structures for command-line applications, web applications, and more.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-coding-interview-tips/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Python-Interview-Questions_Watermarked.5c5245ea8638.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Interview-Questions_Watermarked.5c5245ea8638.jpg&amp;w=480&amp;sig=f410e58f736a16bf13e5fab912893780c434a847 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Interview-Questions_Watermarked.5c5245ea8638.jpg&amp;w=960&amp;sig=495594dad0dbbb6359ea2a0d5e31adaa73eaf275 960w, https://files.realpython.com/media/Python-Interview-Questions_Watermarked.5c5245ea8638.jpg 1920w" alt="How to Stand Out in a Python Coding Interview"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-coding-interview-tips/" class="stretched-link"><h3 class="my-0 h4">How to Stand Out in a Python Coding Interview</h3></a>
+<p class="small mb-0 text-muted">In this step-by-step tutorial, you&#39;ll learn how to take your Python coding interview skills to the next level and use Python&#39;s built-in functions and modules to solve problems faster and more easily.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-code-quality/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/code_quality_img.73eae557a204.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/code_quality_img.73eae557a204.jpg&amp;w=480&amp;sig=14014a7e7d304c61e78119adda6febedbbc69421 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/code_quality_img.73eae557a204.jpg&amp;w=960&amp;sig=0512954ebcfa693f57cae20dda575b775563deae 960w, https://files.realpython.com/media/code_quality_img.73eae557a204.jpg 1920w" alt="Python Code Quality Illustration"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-code-quality/" class="stretched-link"><h3 class="my-0 h4">Python Code Quality: Tools &amp; Best Practices</h3></a>
+<p class="small mb-0 text-muted">See how to improve the quality of your Python code. We&#39;ll analyze and compare tools you can use to take your code to the next level and make it more Pythonic.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/writing-cleaner-python-code-pylint/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Intermediate_Watermarked.9f8c0a24bde7.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Intermediate_Watermarked.9f8c0a24bde7.jpg&amp;w=480&amp;sig=7c5d7270d14090085d26ca0dbe06eebf20c12058 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Intermediate_Watermarked.9f8c0a24bde7.jpg&amp;w=960&amp;sig=5d622380a258ed5cd898e40572345babd8670515 960w, https://files.realpython.com/media/Intermediate_Watermarked.9f8c0a24bde7.jpg 1920w" alt="Intermediate Python"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/writing-cleaner-python-code-pylint/" class="stretched-link"><h3 class="my-0 h4">Writing Cleaner Python Code With PyLint</h3></a>
+<p class="small mb-0 text-muted">In this course you&#39;ll see how to install and set up the PyLint code linter tool. You&#39;ll learn why you should use code linters like PyLint, Flake8, PyFlakes, or other static analysis tools.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/python-type-checking/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/The-Ultimate-Guide-to-Python-Type-Checking_Watermarked.6fc1c7e40ada.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/The-Ultimate-Guide-to-Python-Type-Checking_Watermarked.6fc1c7e40ada.jpg&amp;w=480&amp;sig=9a6c68119cc6f47aba47350871b1cbe6d398510c 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/The-Ultimate-Guide-to-Python-Type-Checking_Watermarked.6fc1c7e40ada.jpg&amp;w=960&amp;sig=78c590a6589ab5b5ff44423377bb4be2db7ea69b 960w, https://files.realpython.com/media/The-Ultimate-Guide-to-Python-Type-Checking_Watermarked.6fc1c7e40ada.jpg 1920w" alt="The Ultimate Guide to Python Type Checking"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/python-type-checking/" class="stretched-link"><h3 class="my-0 h4">Python Type Checking</h3></a>
+<p class="small mb-0 text-muted">Traditionally, types have been handled by the Python interpreter in a flexible but implicit way. Recent versions of Python allow you to specify explicit type hints that can be used by different tools to help you develop your code more efficiently.</p>
+</div>
+</div>
+</div>
+<p class="muted small text-center mt-2 mb-0"><a href="https://feedback.realpython.com/realpython-com/?d=eyJwIjoicmVhbHB5dGhvbi1jb20iLCJzaWciOiI1JnhLUD8oKnVOUWMlazBBMiVxYjdXcGpvK0JQZiRfaHQlbmAqU0VmIiwidCI6IldyaXRlIE1vcmUgUHl0aG9uaWMgQ29kZSAoTGVhcm5pbmcgUGF0aCkiLCJ1IjoiL2xlYXJuaW5nLXBhdGhzL3dyaXRpbmctcHl0aG9uaWMtY29kZS8ifQ==" target="_blank"><i class="fa fa-commenting-o" aria-hidden="true"></i> Got feedback on this learning path?</a></p>
+<p class="mt-3"><a href="/learning-paths/">« Browse All Learning Paths</a></p>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="text-center text-muted">© 2012–2020 Real Python ⋅ <a style="text-decoration: none;" href="/privacy-policy/">Privacy Policy</a>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="/static/jquery.min.220afd743d9e.js"></script>
+<script src="/static/popper.min.1022eaf388cc.js"></script>
+<script src="/static/bootstrap.min.61f338f870fc.js"></script>
+<script src="/static/repl-toggle.366cb6d72340.js"></script>
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+</body>
+</html>

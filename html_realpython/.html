@@ -1,0 +1,554 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://files.realpython.com" rel="preconnect">
+<title>Python Community Interview With Kelly and Sean of Teaching Python – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="Kelly Paredes and Sean Tibor, the hosts of the Teaching Python podcast, join us to discuss not only the benefits of learning Python, but also what it&#39;s like to learn Python when you&#39;re not planning to become a professional developer.">
+<meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/gfonts/font.32be62914940.css">
+<link rel="stylesheet" href="/static/realpython.min.02b677b0fce9.css">
+<link rel="canonical" href="https://realpython.com/python-community-interview-kelly-and-sean-teaching-python/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/A-Community-Interview_Blue.4a0c9c3f9e33.jpg">
+<meta property="og:image" content="https://files.realpython.com/media/A-Community-Interview_Blue.4a0c9c3f9e33.jpg">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="Python Community Interview With Kelly and Sean of Teaching Python – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/python-community-interview-kelly-and-sean-teaching-python/">
+<meta property="og:description" content="Kelly Paredes and Sean Tibor, the hosts of the Teaching Python podcast, join us to discuss not only the benefits of learning Python, but also what it&#39;s like to learn Python when you&#39;re not planning to become a professional developer.">
+<link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="/manifest.json">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+  
+    ga('set', 'anonymizeIp', true);
+  
+  
+  ga('send', 'pageview');
+  
+</script>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column">
+<div class="container flex-row">
+<a class="navbar-brand" href="/">
+<img src="/static/real-python-logo.893c30edea53.svg" height="40" class="d-inline-block align-top" alt="Real Python">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-2 flex-fill">
+<li class="nav-item">
+<a class="nav-link" href="/start-here/">Start&nbsp;Here</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap"></span> Learn Python
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+<a class="dropdown-item" href="/" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and tutorials</small></a>
+<a class="dropdown-item" href="/courses/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-film"></i> Video Courses →<br><small class="text-secondary">Step-by-step video lessons</small></a>
+<a class="dropdown-item" href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+<a class="dropdown-item" href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+<a class="dropdown-item" href="/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack"></i> Community →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+<a class="dropdown-item pb-3" href="/tutorials/all/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags"></i> Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+<a class="dropdown-item border-top" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> Unlock All Content</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Store
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> RP Membership</a>
+<a class="dropdown-item" href="/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+<a class="dropdown-item" href="/podcasts/rpp/">Python Podcast</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+<a class="dropdown-item" href="/team/">Meet the Team</a>
+<a class="dropdown-item" href="/write-for-us/">Become a Tutorial Author</a>
+<a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+</div>
+</li>
+</ul>
+<div class="d-block d-xl-none">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search"></i></span></a>
+</li>
+</ul>
+</div>
+<div class="d-none d-xl-flex align-items-center mr-2">
+<form class="form-inline" action="/search" method="GET">
+<i class="fa fa-search fa-fw text-muted position-absolute pl-2"></i>
+<input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" name="q">
+<input type="hidden" name="_from" value="nav">
+</form>
+</div>
+<ul class="navbar-nav">
+<li class="nav-item form-inline">
+<a class="ml-2 ml-lg-0 btn btn-sm btn-primary px-3" href="/account/join/">Join</a>
+</li>
+<li class="nav-item">
+<a class="btn text-light" href="/account/login/">Sign&#8209;In</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="flex-row w-100" style="border-top: 1px dashed #ffc107 !important;">
+<div class="container">
+<a class="link-unstyled mx-auto" href="https://realpython.com/free-courses-march-2020"><p class="my-1 small"><span class="text-warning">😷<strong>Stuck at home?</strong> Enjoy free courses, on&nbsp;us&nbsp;→</span></p></a>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+<div class="row justify-content-center">
+<div class="col-md-11 col-lg-8 article">
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Python Community Interview" src="https://files.realpython.com/media/A-Community-Interview_Blue.4a0c9c3f9e33.jpg" width="1920" height="1080" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/A-Community-Interview_Blue.4a0c9c3f9e33.jpg&amp;w=480&amp;sig=4dad2cbcf5f439992716c61a8ad7a8df3b888c1b 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/A-Community-Interview_Blue.4a0c9c3f9e33.jpg&amp;w=960&amp;sig=a252d371b6e91e234067395bc1f7c0f9412678ef 960w, https://files.realpython.com/media/A-Community-Interview_Blue.4a0c9c3f9e33.jpg 1920w" sizes="75vw">
+</figure>
+<h1>Python Community Interview With Kelly and Sean of Teaching Python</h1>
+<p class="mb-0">
+<span class="text-muted">by <a class="text-muted" href="#author">Ricky White</a>
+<span class="ml-2 fa fa-clock-o"></span> Jan 27, 2020
+<span class="ml-2 mr-1 fa fa-comments"></span><a class="text-muted" href="#reader-comments"><span class="disqus-comment-count" data-disqus-identifier="https://realpython.com/python-community-interview-kelly-and-sean-teaching-python/"></span></a>
+<span class="ml-2 fa fa-tags"></span>
+<a href="/tutorials/community/" class="badge badge-light text-muted">community</a>
+<div class="d-flex flex-row justify-content-between my-2">
+<div class="align-self-center">
+<span>
+<a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet/?text=Check out this %23Python tutorial: Python%20Community%20Interview%20With%20Kelly%20and%20Sean%20of%20Teaching%20Python by @realpython&url=https%3A//realpython.com/python-community-interview-kelly-and-sean-teaching-python/" class="mr-1 badge badge-twitter text-light mb-1"><i class="mr-1 fa fa-twitter text-light"></i>Tweet</a>
+<a target="_blank" rel="nofollow" href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/python-community-interview-kelly-and-sean-teaching-python/" class="mr-1 badge badge-facebook text-light mb-1"><i class="mr-1 fa fa-facebook text-light"></i>Share</a>
+<a target="_blank" rel="nofollow" href="mailto:?subject=Python article for you&body=Check out this Python tutorial:%0A%0APython%20Community%20Interview%20With%20Kelly%20and%20Sean%20of%20Teaching%20Python%0A%0Ahttps%3A//realpython.com/python-community-interview-kelly-and-sean-teaching-python/" class="mr-1 badge badge-red text-light mb-1"><i class="mr-1 fa fa-envelope text-light"></i>Email</a>
+</span>
+</div>
+</div>
+</p>
+<div class="article-body">
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:12.5%;"></div>
+<div class="rpad" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+</div>
+<p>This week I&rsquo;m joined by <strong>Kelly Paredes</strong> and <strong>Sean Tibor</strong>, the hosts of the <a href="https://twitter.com/teachingpython">Teaching Python</a> podcast. Join us as we discuss the benefits of learning Python outside of the code itself, and what it&rsquo;s like to learn Python when you&rsquo;re not planning to become a professional developer. So, without further ado, let&rsquo;s meet Kelly and Sean!</p>
+<p class="mt-5"><strong>Ricky:</strong> <em>Welcome to</em> Real Python, <em>Kelly and Sean. I&rsquo;m glad you could join me for this interview. Let&rsquo;s start the same way we do with all our guests. How&rsquo;d you get into programming, and when did you start using Python?</em></p>
+<p><img loading="lazy" class="img-fluid w-33 float-right ml-3" src="https://files.realpython.com/media/IMG_0453.e12ab57f3712.webp" width="1200" height="801" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/IMG_0453.e12ab57f3712.webp&amp;w=300&amp;sig=bc112eba2b8eff54bc7cbd12e19f04cc70366b7d 300w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/IMG_0453.e12ab57f3712.webp&amp;w=600&amp;sig=b99b850aee1bb8c021bb6512e26ad2e301bd6e76 600w, https://files.realpython.com/media/IMG_0453.e12ab57f3712.webp 1200w" sizes="75vw" alt="The hosts of the Teaching Python Podcast - Kelly and Sean" /></p>
+<p><strong>Kelly:</strong> I am probably your least typical coder/programmer. I didn&rsquo;t really get into programming until about a year and a half ago. I played a little with MS-DOS as a kid, but I never went further than copying things from a manual. Also, I was a pre-med student in college but never really had a coding class.</p>
+<p>During graduate school, I had a few web design classes, and I liked playing around on the web, but that&rsquo;s the most coding I did in my youth. I later taught students how to make websites with HTML in Dreamweaver, back when it was a huge thing to do in education. Then, later I programmed Lego Robots with the EV3 Mindstorm software and played with Block Code a lot with students.</p>
+<p>However, Python is my first real coding language, and I&rsquo;ve been teaching myself how to code ever since. I think Python lends itself to newbies because of its readability and its logically organized structure.</p>
+<p><strong>Sean:</strong> I grew up around computers, and I think my earliest coding experiences were with Apple II computers in the classroom. I remember typing in BASIC programs from magazines and books to solve puzzles and decode cryptograms.</p>
+<p>My serious programming started in college, where I studied information systems and had to learn about databases and web programming with Java and PHP. I fell in love with the ability to make things more efficient and elegant through practical code. I applied this to my career in software development and marketing by always finding a way to make things a little bit better with code, even when I became a manager and stopped coding as part of my day job.</p>
+<p>About a year and a half ago, I decided to make a career change and start teaching computer science full time. We wanted to use Python as our foundational text-based language, so I began teaching myself all about it. It&rsquo;s been one of the most satisfying languages to learn, use, and teach to others because of its elegant implementation and wide range of uses.</p>
+<p class="mt-5"><strong>Ricky:</strong> <em>You are the co-hosts of the <a href="https://www.teachingpython.fm/">Teaching Python Podcast</a>, which started in December 2018. For those that have not yet listened, why did you start the podcast? Also, who was your target listener when you started and has this changed as you&rsquo;ve progressed?</em></p>
+<p><strong>Kelly:</strong> Sean and I work together in the same classroom. We spend most of our nine hours together talking about really cool things like coding, pedagogy, classroom management, curriculum design, how to get cool projects into the classroom, and whatever else piques our interest that day. We often hang out while one of us is teaching, and we tend to work together instructing when we can.</p>
+<p>We realized that we had something unique together. I was his teaching mentor because it was his first time teaching, and he was my Python coding mentor because, well, he&rsquo;s just really smart when it comes to coding! We started this podcast because we noticed it&rsquo;s hard to find trained software engineers who are willing to teach, and teachers who are willing to learn how to code.</p>
+<p>If you&rsquo;re a programmer, you typically don&rsquo;t want to start teaching on a reduced salary, and there aren&rsquo;t many experienced teachers who have strong coding experience. It&rsquo;s hard to start a computer science curriculum if you don&rsquo;t have quality teachers who know both the code and the pedagogy.</p>
+<p>We strongly believe that good teachers from other subject areas can become great computer science teachers and that all it takes is a little mentoring and a lot of perseverance. At the same time, we want to help other teachers learn how to code so that we can all help develop students who can think critically, solve problems, and develop the social and emotional skills that will help them in their future.</p>
+<p><strong>Sean:</strong> We originally thought that many of our listeners would be teachers who specialize in computer science or a related STEM field. It&rsquo;s been interesting to find that there are so many Python developers that have a passion for education and for showing others how to begin applying computational thinking and problem solving to the world around them!</p>
+<p>One of our favorite things about this podcast has been meeting people from across the Python world who are doing such interesting and important work. Whether it&rsquo;s English teachers that use code to explore literary concepts, college-level instructors teaching data science principles to graduate students in the sciences, or busy professionals who teach after school Python programs to underprivileged or under-represented groups, it&rsquo;s inspiring to see how Python can be used to make the world a little bit better.</p>
+<p class="mt-5"><strong>Ricky:</strong> <em>You teach Python to middle school-aged kids. I&rsquo;m curious to hear about any challenges it has presented for you personally. How do you approach teaching that age group differently, as opposed to adults?</em></p>
+<p><strong>Kelly:</strong> I&rsquo;ve taught middle school children for over twenty years. I love this age group, especially 7th graders&mdash;they&rsquo;re sponges! If they&rsquo;re given the opportunity and the right amount of support, then they can accomplish amazing things.</p>
+<p>In my opinion, teaching middle school students is the easy part. Sometimes, explaining to their parents that coding is hard and that we&rsquo;re &ldquo;pushing&rdquo; their children to do what they believe they can&rsquo;t do is the hard part. Parents don&rsquo;t typically know how to let their child struggle. And most parents don&rsquo;t understand coding themselves, and so they feel lost trying to help their child.</p>
+<p>However, Sean and I believe that finding the right desirable difficulties is what helps students to learn more than just how to code. In the end, parents are super pleased with what their children accomplish!</p>
+<p><strong>Sean:</strong> Even after working in business with adults for so many years, it was a little intimidating to teach middle school students for the first time, because they usually look to the teacher as the primary source of knowledge. We have really great students in our school, and middle school is often the time where they&rsquo;re seeking a huge amount of knowledge and understanding about themselves and the world around them.</p>
+<p>I&rsquo;ve found that one of the most important things I can do as a teacher is to show them that I don&rsquo;t know everything. Then, I can guide them through the process of acquiring new information and applying it to the problem they&rsquo;re trying to solve or the program they&rsquo;re trying to create. I have to thank Kelly for helping me understand the importance of this approach so quickly as a new teacher.</p>
+<p class="mt-5"><strong>Ricky:</strong> <em>I think it&rsquo;s fair to say that not all of your students are going to end up as software engineers or similar in the future. What benefits have your students gained in learning something like Python programming and completing the projects set?</em></p>
+<p><strong>Kelly:</strong> I think it&rsquo;s fair to say that most computer science teachers do not expect their students to become software engineers, nor do we seek out that goal for them. What I&rsquo;ve learned through my own process of learning is that &ldquo;learning how to code&rdquo; is so much more than developing a cool app, or another version of a &ldquo;Guess the Number&rdquo; game.</p>
+<p>I&rsquo;ve learned so much about myself and how to solve problems that I knew nothing about or had no background knowledge about, or even a reference to start from. However, I&rsquo;ve developed skills that help me build my confidence, improve my research skills, allow me to read content where I know less than 80% of the vocabulary, and persevere in solving a problem that has multiple solutions.</p>
+<p>I want my students to have the same experience. I want to build their confidence and let them understand that getting an &ldquo;A&rdquo; on a test is great, but being able to solve a problem, to think critically about the implications and results, and to have the dedication to face the unknown is more important than getting an &ldquo;A&rdquo; or being a &ldquo;coder.&rdquo; We really hope to develop lifelong learners who are eager to take on any challenge.</p>
+<p><strong>Sean:</strong> I often tell the students that we&rsquo;re lucky to be coding in Python because it&rsquo;s such a great language for beginners, and it also grows with you to solve the problems at hand.</p>
+<p>I think it&rsquo;s fair to say that the least important thing we&rsquo;re teaching right now is the language, syntax, and vocabulary of Python. What we&rsquo;re really teaching is research, problem solving, persistence, dealing with setbacks and failure, and how to develop true competence in something. These traits and skills are durable across many different disciplines, not just computer science.</p>
+<p>To echo Kelly, only a small fraction of our students are going to pursue a traditional computer science education, but <em>all</em> of them are going to need to think through and solve problems, learn and master topics, and develop true competency in their chosen fields. Our wager is that knowing how to solve problems through code and technology will serve them well in the career paths of the 21st century.</p>
+<p class="mt-5"><strong>Ricky:</strong> <em>Now, for my last few questions. What else do you get up to in your spare time? What other hobbies and interests do you have, aside from teaching Python and coding?</em></p>
+<p><strong>Kelly:</strong> Between teaching, learning how to code better, and recording Teaching Python, I don&rsquo;t do too much else! I love spending time with my two young boys and enjoying the South Florida life. We like swimming, going to the beach, fishing, and playing sports&mdash;really, anything outdoors. However, I really want to write a book one day and have started the process, but it&rsquo;s hard to get it going with the time I have leftover in the day.</p>
+<p>I also want to get to a point in my coding where I can make something really useful that helps teachers get a better understanding of their students&rsquo; academic, emotional, and social progress in school. Both of these latter goals are &ldquo;near&rdquo; future hopes and dreams that I try to keep within my grasp.</p>
+<p><strong>Sean:</strong> If I&rsquo;m not teaching Python or writing code, then you can usually find me playing with my kids, consulting with a few marketing clients, or finding ways to make my house smarter. I also try to stay healthy by distance running and kickboxing at least a few mornings a week before school.</p>
+<p>We&rsquo;re blessed in South Florida with warm weather year-round, so you may also see me out fishing in the canals and lakes, flying my drone, or experimenting with photography. Sometimes, I even get to play video games or work on side projects, like Pandas-based data science analysis of CRM systems for my clients.</p>
+<hr />
+<p>Thank you, Kelly and Sean, for joining me for this interview! It&rsquo;s been great hearing from you both.</p>
+<p>You can check out the Teaching Python podcast on their <a href="https://www.teachingpython.fm/">website</a>, or by searching for it in your favorite podcast player. You can also follow <a href="https://twitter.com/kellypared">Kelly</a> and <a href="https://twitter.com/smtibor">Sean</a> on Twitter. As always, if there&rsquo;s someone you&rsquo;d like me to interview in the future, then leave a comment down below or <a href="https://twitter.com/endlesstrax">send me a message on Twitter</a>.</p>
+</div>
+<div class="card mt-4 mb-4 bg-secondary">
+<p class="card-header h3 text-center bg-light">🐍 Python Tricks 💌</p>
+<div class="card-body">
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-sm-7">
+<p>Get a short &amp; sweet <strong>Python Trick</strong> delivered to your inbox every couple of days. No spam ever. Unsubscribe any time. Curated by the Real Python team.</p>
+</div>
+<div class="col-xs-12 col-sm-5">
+<img class="img-fluid rounded mb-3" src="/static/pytrick-dict-merge.4201a0125a5e.png" width="738" height="490" alt="Python Tricks Dictionary Merge">
+</div>
+</div>
+<div class="row mb-3">
+<form class="col-12" action="/optins/process/" method="post">
+<input type="hidden" name="csrfmiddlewaretoken" value="2N75d35ZBVHsWdhAKLRf0mVNBJVnVy9ghJjwCApfqJfGBSom9nSUnDtGppnYklyI">
+<input type="hidden" name="slug" value="static-python-tricks-footer">
+<div class="form-group">
+<input name="email" type="email" class="form-control form-control-lg" placeholder="Email Address" required>
+</div>
+<button name="submit" type="submit" class="btn btn-primary btn-lg btn-block">Send Me Python Tricks »</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="card mt-3" id="author">
+<p class="card-header h3">About <strong>Ricky White</strong></p>
+<div class="card-body">
+<div class="container p-0">
+<div class="row">
+<div class="col-12 col-md-3 align-self-center">
+<a href="/team/rwhite/"><img loading="lazy" src="https://files.realpython.com/media/rwhite-avatar.5cd0b2235c7d.7e54d4e854a2.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/rwhite-avatar.5cd0b2235c7d.7e54d4e854a2.jpg&amp;w=139&amp;sig=1b040a6b41ac90fe44faa2c11f04810060fceae6 139w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/rwhite-avatar.5cd0b2235c7d.7e54d4e854a2.jpg&amp;w=278&amp;sig=54d17048e318cf4900da1d41eaebd639fe344d9b 278w, https://files.realpython.com/media/rwhite-avatar.5cd0b2235c7d.7e54d4e854a2.jpg 556w" sizes="25vw" class="d-block d-md-none rounded-circle img-fluid w-33 mb-0 mx-auto" alt="Ricky White"></a>
+<a href="/team/rwhite/"><img loading="lazy" src="https://files.realpython.com/media/rwhite-avatar.5cd0b2235c7d.7e54d4e854a2.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/rwhite-avatar.5cd0b2235c7d.7e54d4e854a2.jpg&amp;w=139&amp;sig=1b040a6b41ac90fe44faa2c11f04810060fceae6 139w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/rwhite-avatar.5cd0b2235c7d.7e54d4e854a2.jpg&amp;w=278&amp;sig=54d17048e318cf4900da1d41eaebd639fe344d9b 278w, https://files.realpython.com/media/rwhite-avatar.5cd0b2235c7d.7e54d4e854a2.jpg 556w" sizes="25vw" class="d-none d-md-block rounded-circle img-fluid w-100 mb-0" alt="Ricky White"></a>
+</div>
+<div class="col mt-3">
+<p>Ricky is a Python Developer and Writer who has a tendency to refer to himself in the third person. By day he is a stay-at-home dad, and by night he&#39;s a crime-fighting ninja. He can often be found in a local coffee shop, or at rickywhite.dev.</p>
+<a href="/team/rwhite/" class="card-link">» More about Ricky</a>
+</div>
+</div>
+</div>
+</div>
+<hr class="my-0">
+<div class="card-body pb-0">
+<div class="container">
+<div class="row">
+<p><em>Each tutorial at Real Python is created by a team of developers so that it meets our high quality standards. The team members who worked on this tutorial are:</em></p>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/asantos/"><img loading="lazy" src="https://files.realpython.com/media/asantos-avatar.888c78fffab3.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/asantos-avatar.888c78fffab3.jpg&amp;w=175&amp;sig=a095ca193d3f40e73e6921403c1c43e48c9a4bdc 175w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/asantos-avatar.888c78fffab3.jpg&amp;w=350&amp;sig=28c0dc29376daf4ca29d5f47b3708b873c21af76 350w, https://files.realpython.com/media/asantos-avatar.888c78fffab3.jpg 700w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Aldren Santos"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/asantos/" class="card-link"><p>Aldren</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/jayazhane/"><img loading="lazy" src="https://files.realpython.com/media/author-jpowell.ecce5da51b65.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/author-jpowell.ecce5da51b65.jpg&amp;w=143&amp;sig=b95bfe83fd10d5bf43b3623122ff842fd8dd7574 143w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/author-jpowell.ecce5da51b65.jpg&amp;w=286&amp;sig=ac2be4e646abc20329b882f6389b5e570965609f 286w, https://files.realpython.com/media/author-jpowell.ecce5da51b65.jpg 572w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Jaya Zhané"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/jayazhane/" class="card-link"><p>Jaya</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/jjablonski/"><img loading="lazy" src="https://files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg&amp;w=200&amp;sig=d779dbceba743afb659648000525a6a71656ae98 200w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg&amp;w=400&amp;sig=99ce401a9a219f6b406309e90925252be1900dfc 400w, https://files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg 800w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Joanna Jablonski"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/jjablonski/" class="card-link"><p>Joanna</p></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-light rounded py-4 my-4 shadow shadow-sm mx-n2">
+<div class="col-12 text-center d-block d-md-none">
+<p class="h2 mb-3">Master <u><span class="marker-highlight">Real-World Python Skills</mark></u> With Unlimited Access to Real&nbsp;Python</p>
+<p class="mb-1"><img class="w-75" src="/static/videos/lesson-locked.f5105cfd26db.svg"></p>
+<p class="mx-auto w-75 mb-3 small"><strong>Join us and get access to hundreds of tutorials, hands-on video courses, and a community of expert&nbsp;Pythonistas:</strong></p>
+<p class="mb-0"><a href="/account/join/?utm_source=rp_article_footer&utm_content=python-community-interview-kelly-and-sean-teaching-python" class="btn btn-primary btn-sm px-4 mb-0">Level Up Your Python Skills »</a>
+</div>
+<div class="col-12 text-center d-none d-md-block">
+<p class="h2 mb-2">Master <u><span class="marker-highlight">Real-World Python Skills</span></u><br>With Unlimited Access to Real&nbsp;Python</p>
+<p class="mb-2"><img class="w-50 mb-2" src="/static/videos/lesson-locked.f5105cfd26db.svg"></p>
+<p class="mx-auto w-50 mb-3"><strong>Join us and get access to hundreds of tutorials, hands-on video courses, and a community of expert Pythonistas:</strong></p>
+<p><a href="/account/join/?utm_source=rp_article_footer&utm_content=python-community-interview-kelly-and-sean-teaching-python" class="btn btn-primary btn-lg px-4">Level Up Your Python Skills »</a>
+</div>
+</div>
+<div class="card mt-4" id="reader-comments">
+<p class="card-header h3">What Do You Think?</p>
+<div class="text-center mt-3 mb-0 p-0">
+<span>
+<a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet/?text=Check out this %23Python tutorial: Python%20Community%20Interview%20With%20Kelly%20and%20Sean%20of%20Teaching%20Python by @realpython&url=https%3A//realpython.com/python-community-interview-kelly-and-sean-teaching-python/" class="mr-1 badge badge-twitter text-light mb-1"><i class="mr-1 fa fa-twitter text-light"></i>Tweet</a>
+<a target="_blank" rel="nofollow" href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/python-community-interview-kelly-and-sean-teaching-python/" class="mr-1 badge badge-facebook text-light mb-1"><i class="mr-1 fa fa-facebook text-light"></i>Share</a>
+<a target="_blank" rel="nofollow" href="mailto:?subject=Python article for you&body=Check out this Python tutorial:%0A%0APython%20Community%20Interview%20With%20Kelly%20and%20Sean%20of%20Teaching%20Python%0A%0Ahttps%3A//realpython.com/python-community-interview-kelly-and-sean-teaching-python/" class="mr-1 badge badge-red text-light mb-1"><i class="mr-1 fa fa-envelope text-light"></i>Email</a>
+</span>
+</div>
+<div class="card-body">
+<div class="alert alert-dark">
+<p class="mb-0"><strong>Real Python Comment Policy:</strong> The most useful comments are those written with the goal of learning from or helping out other readers—after reading the whole article and all the earlier comments. Complaints and insults generally won’t make the cut here.</p>
+</div>
+<p>What’s your #1 takeaway or favorite thing you learned? How are you going to put your newfound skills to use? Leave a comment below and let us know.</p>
+<div class="mb-4" id="disqus_thread">
+</div>
+</div>
+</div>
+<div class="card mt-4 mb-4">
+<p class="card-header h3">Keep Learning</p>
+<div class="card-body">
+<p class="mb-0">Related Tutorial Categories:
+<a href="/tutorials/community/" class="badge badge-light text-muted">community</a>
+</p>
+</div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="rpvc">
+<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header border-0 mt-3">
+<div class="col-12 modal-title text-center">
+<h2 class="my-0 mx-5">Master <u>Real-World Python Skills</u> With Unlimited Access to Real Python</h2>
+<p class="text-center text-muted mt-2 mb-1">Already a member? <a href="/account/login/">Sign-In</a></p>
+</div>
+</div>
+<div class="modal-body bg-light">
+<div class="col-12 text-center">
+<p class="mb-2 mt-3"><a href="/account/join/?utm_source=rp&utm_medium=web&utm_campaign=pwn&utm_content=v1"><img class="w-50 mb-2" src="/static/videos/lesson-locked.f5105cfd26db.svg"></a></p>
+<p class="mx-auto w-66 mb-3"><strong>Join us and get access to hundreds of tutorials, hands-on video courses, and a community of expert Pythonistas:</strong></p>
+<p><a href="/account/join/?utm_source=rp&utm_medium=web&utm_campaign=pwn&utm_content=v1" class="btn btn-primary btn-lg px-4">See Membership Options »</a>
+</div>
+</div>
+<div class="modal-footer border-0">
+<a href="#!" class="text-muted btn" data-dismiss="modal">Close</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="col-md-7 col-lg-4">
+<div class="card mb-3 bg-secondary">
+<form class="card-body" action="/optins/process/" method="post">
+<div class="form-group">
+<p class="h5 text-muted text-center">— FREE Email Series —</p>
+<p class="h3 text-center">🐍 Python Tricks 💌</p>
+<p><img class="img-fluid rounded" src="/static/pytrick-dict-merge.4201a0125a5e.png" width="738" height="490" alt="Python Tricks Dictionary Merge"></p>
+</div>
+<div class="form-group">
+<input type="hidden" name="csrfmiddlewaretoken" value="2N75d35ZBVHsWdhAKLRf0mVNBJVnVy9ghJjwCApfqJfGBSom9nSUnDtGppnYklyI">
+<input type="hidden" name="slug" value="static-python-tricks-sidebar">
+<input type="email" class="form-control form-control-md" name="email" placeholder="Email&hellip;" required>
+</div>
+<button type="submit" name="submit" class="btn btn-primary btn-md btn-block">Get Python Tricks »</button>
+<p class="mb-0 mt-2 text-muted text-center">🔒 No spam. Unsubscribe any time.</p>
+</form>
+</div>
+<div class="sidebar-module sidebar-module-inset border">
+<p class="h4"><a class="link-unstyled" href="/tutorials/all/">All Tutorial Topics</a></p>
+<a href="/tutorials/advanced/" class="badge badge-light text-muted">advanced</a>
+<a href="/tutorials/api/" class="badge badge-light text-muted">api</a>
+<a href="/tutorials/basics/" class="badge badge-light text-muted">basics</a>
+<a href="/tutorials/best-practices/" class="badge badge-light text-muted">best-practices</a>
+<a href="/tutorials/community/" class="badge badge-light text-muted">community</a>
+<a href="/tutorials/databases/" class="badge badge-light text-muted">databases</a>
+<a href="/tutorials/data-science/" class="badge badge-light text-muted">data-science</a>
+<a href="/tutorials/devops/" class="badge badge-light text-muted">devops</a>
+<a href="/tutorials/django/" class="badge badge-light text-muted">django</a>
+<a href="/tutorials/docker/" class="badge badge-light text-muted">docker</a>
+<a href="/tutorials/flask/" class="badge badge-light text-muted">flask</a>
+<a href="/tutorials/front-end/" class="badge badge-light text-muted">front-end</a>
+<a href="/tutorials/intermediate/" class="badge badge-light text-muted">intermediate</a>
+<a href="/tutorials/machine-learning/" class="badge badge-light text-muted">machine-learning</a>
+<a href="/tutorials/python/" class="badge badge-light text-muted">python</a>
+<a href="/tutorials/testing/" class="badge badge-light text-muted">testing</a>
+<a href="/tutorials/tools/" class="badge badge-light text-muted">tools</a>
+<a href="/tutorials/web-dev/" class="badge badge-light text-muted">web-dev</a>
+<a href="/tutorials/web-scraping/" class="badge badge-light text-muted">web-scraping</a>
+</div>
+<div class="sidebar-module sidebar-module-inset p-0" style="overflow:hidden;">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:100%;"></div>
+<div class="rpad" data-unit="1x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+</div>
+<div class="sidebar-sticky">
+<div class="sidebar-module sidebar-module-inset text-center my-3 py-0">
+<span>
+<a target="_blank" rel="nofollow" href="https://twitter.com/intent/tweet/?text=Check out this %23Python tutorial: Python%20Community%20Interview%20With%20Kelly%20and%20Sean%20of%20Teaching%20Python by @realpython&url=https%3A//realpython.com/python-community-interview-kelly-and-sean-teaching-python/" class="mr-1 badge badge-twitter text-light mb-1"><i class="mr-1 fa fa-twitter text-light"></i>Tweet</a>
+<a target="_blank" rel="nofollow" href="https://facebook.com/sharer/sharer.php?u=https%3A//realpython.com/python-community-interview-kelly-and-sean-teaching-python/" class="mr-1 badge badge-facebook text-light mb-1"><i class="mr-1 fa fa-facebook text-light"></i>Share</a>
+<a target="_blank" rel="nofollow" href="mailto:?subject=Python article for you&body=Check out this Python tutorial:%0A%0APython%20Community%20Interview%20With%20Kelly%20and%20Sean%20of%20Teaching%20Python%0A%0Ahttps%3A//realpython.com/python-community-interview-kelly-and-sean-teaching-python/" class="mr-1 badge badge-red text-light mb-1"><i class="mr-1 fa fa-envelope text-light"></i>Email</a>
+</span>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<div class="w-75 mx-auto my-0">
+<div style="display:block;position:relative;">
+<div style="display:block;width:100%;padding-top:12.5%;"></div>
+<div class="rpad" data-unit="8x1" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;"></div>
+</div>
+</div>
+<p class="text-center text-muted w-75 mx-auto">© 2012–2020 Real Python&nbsp;⋅ <a href="/newsletter/">Newsletter</a>&nbsp;⋅ <a href="/podcasts/rpp/">Podcast</a>&nbsp;⋅ <a href="https://www.youtube.com/realpython">YouTube</a>&nbsp;⋅ <a href="https://twitter.com/realpython">Twitter</a>&nbsp;⋅ <a href="https://facebook.com/LearnRealPython">Facebook</a>&nbsp;⋅ <a href="https://www.instagram.com/realpython/">Instagram</a>&nbsp;⋅ <a href="/">Python&nbsp;Tutorials</a>&nbsp;⋅ <a href="/search">Search</a>&nbsp;⋅ <a href="/privacy-policy/">Privacy Policy</a>&nbsp;⋅ <a href="/energy-policy/" class="text-success active">Energy Policy</a>&nbsp;⋅ <a href="/sponsorships/">Advertise</a>&nbsp;⋅ <a href="/contact/">Contact</a><br>❤️ Happy Pythoning!</p>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="/static/jquery.min.220afd743d9e.js"></script>
+<script src="/static/popper.min.1022eaf388cc.js"></script>
+<script src="/static/bootstrap.min.61f338f870fc.js"></script>
+<script src="/static/repl-toggle.366cb6d72340.js"></script>
+<script>window.rp_prop_id = '58946116052';</script>
+<script src="https://srv.realpython.net/tag.js" async></script>
+<script id="dsq-count-scr" src="https://realpython.disqus.com/count.js" async></script>
+<script>
+      var disqus_config = function () {
+        this.page.url = 'https://realpython.com/python-community-interview-kelly-and-sean-teaching-python/';
+        this.page.identifier = 'https://realpython.com/python-community-interview-kelly-and-sean-teaching-python/';
+        this.callbacks.onReady = [function() {
+          if (window.onDisqusReady) {
+            window.onDisqusReady();
+          }
+        }];
+      };
+      var disqus_script_url = 'https://realpython.disqus.com/embed.js';
+    </script>
+<script src="/static/lazydisqus.3a3e39583b32.js" defer></script>
+<script src="/static/articlevc.11f8c3a3f08d.js" defer></script>
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Python Community Interview With Kelly and Sean of Teaching Python",
+    
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://files.realpython.com/media/A-Community-Interview_Blue.4a0c9c3f9e33.jpg",
+      "width": 1920,
+      "height": 1080
+    },
+    
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://realpython.com/python-community-interview-kelly-and-sean-teaching-python/"
+    },
+    "datePublished": "2020-01-27T14:00:00+00:00",
+    "dateModified": "2020-01-15T00:45:41.544239+00:00",
+     "publisher": {
+      "@type": "Organization",
+      "name": "Real Python",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://realpython.com/static/real-python-logo-square-tiny.b2452b6d3823.png",
+        "width": 60,
+        "height": 60
+      }
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Real Python",
+      "url": "https://realpython.com",
+      "logo": "https://realpython.com/static/real-python-logo-square.146e987bf77c.png"
+    },
+    "description": "Kelly Paredes and Sean Tibor, the hosts of the Teaching Python podcast, join us to discuss not only the benefits of learning Python, but also what it&#39;s like to learn Python when you&#39;re not planning to become a professional developer."
+  }
+  </script>
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+</body>
+</html>

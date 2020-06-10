@@ -1,0 +1,367 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://files.realpython.com" rel="preconnect">
+<title>Machine Learning With Python (Learning Path) – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="With this learning path, you&#39;ll sample a range of common machine learning scenarios using Python.">
+<meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/gfonts/font.32be62914940.css">
+<link rel="stylesheet" href="/static/realpython.min.02b677b0fce9.css">
+<link rel="canonical" href="https://realpython.com/learning-paths/machine-learning-python/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/Python-Machine-Learning_Watermarked.c9684236cea2.jpg">
+<meta property="og:image" content="https://files.realpython.com/media/Python-Machine-Learning_Watermarked.c9684236cea2.jpg">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="Machine Learning With Python (Learning Path) – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/learning-paths/machine-learning-python/">
+<meta property="og:description" content="With this learning path, you&#39;ll sample a range of common machine learning scenarios using Python.">
+<link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="/manifest.json">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+  
+    ga('set', 'anonymizeIp', true);
+  
+  
+  ga('send', 'pageview');
+  
+</script>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column">
+<div class="container flex-row">
+<a class="navbar-brand" href="/">
+<img src="/static/real-python-logo.893c30edea53.svg" height="40" class="d-inline-block align-top" alt="Real Python">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-2 flex-fill">
+<li class="nav-item">
+<a class="nav-link" href="/start-here/">Start&nbsp;Here</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap"></span> Learn Python
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+<a class="dropdown-item" href="/" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and tutorials</small></a>
+<a class="dropdown-item" href="/courses/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-film"></i> Video Courses →<br><small class="text-secondary">Step-by-step video lessons</small></a>
+<a class="dropdown-item" href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+<a class="dropdown-item" href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+<a class="dropdown-item" href="/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack"></i> Community →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+<a class="dropdown-item pb-3" href="/tutorials/all/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags"></i> Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+<a class="dropdown-item border-top" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> Unlock All Content</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Store
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> RP Membership</a>
+<a class="dropdown-item" href="/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+<a class="dropdown-item" href="/podcasts/rpp/">Python Podcast</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+<a class="dropdown-item" href="/team/">Meet the Team</a>
+<a class="dropdown-item" href="/write-for-us/">Become a Tutorial Author</a>
+<a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+</div>
+</li>
+</ul>
+<div class="d-block d-xl-none">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search"></i></span></a>
+</li>
+</ul>
+</div>
+<div class="d-none d-xl-flex align-items-center mr-2">
+<form class="form-inline" action="/search" method="GET">
+<i class="fa fa-search fa-fw text-muted position-absolute pl-2"></i>
+<input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" name="q">
+<input type="hidden" name="_from" value="nav">
+</form>
+</div>
+<ul class="navbar-nav">
+<li class="nav-item form-inline">
+<a class="ml-2 ml-lg-0 btn btn-sm btn-primary px-3" href="/account/join/">Join</a>
+</li>
+<li class="nav-item">
+<a class="btn text-light" href="/account/login/">Sign&#8209;In</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+<div class="row justify-content-center">
+<div class="col-md-10 col-lg-8 article">
+<div class="article-body page-body">
+<h1 class="text-center mb-1">Machine Learning With Python</h1>
+<p class="text-center text-muted mt-0 mb-3"><a href="/learning-paths/" class="text-muted">Learning Path</a> ⋅ <strong>Skills:</strong> Image Processing, Text Classification, Speech Recognition</p>
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Python Machine Learning Artwork" src="https://files.realpython.com/media/Python-Machine-Learning_Watermarked.c9684236cea2.jpg" width="1920" height="1080" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Machine-Learning_Watermarked.c9684236cea2.jpg&amp;w=480&amp;sig=21801f84b213656075b00ed7cde0ea278ff24b04 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-Machine-Learning_Watermarked.c9684236cea2.jpg&amp;w=960&amp;sig=2d8551a4357ccee4d077e4742fa42c5666a951f1 960w, https://files.realpython.com/media/Python-Machine-Learning_Watermarked.c9684236cea2.jpg 1920w" sizes="75vw">
+</figure>
+<p>Machine learning is a field of computer science that uses statistical techniques to give computer programs the ability to learn from past experiences and improve how they perform specific tasks.</p>
+<p>With this learning path, you&rsquo;ll sample a range of common machine learning scenarios using Python.</p>
+<h2 class="mb-0 mt-5">Machine Learning With Python</h2>
+<p class="text-muted"><a href="/learning-paths/" class="text-muted">Learning Path</a> ⋅ 6 Resources</p>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-windows-machine-learning-setup/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/A-Basic-Python-Setup-for-Machine-Learning-on-Windows_Watermarked.74516636f737.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/A-Basic-Python-Setup-for-Machine-Learning-on-Windows_Watermarked.74516636f737.jpg&amp;w=480&amp;sig=69c56995a58eeb7e12c7a3a2e42fb48f98f78d31 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/A-Basic-Python-Setup-for-Machine-Learning-on-Windows_Watermarked.74516636f737.jpg&amp;w=960&amp;sig=dce90e3fe1054863c6adbb0eeb0be980408da19b 960w, https://files.realpython.com/media/A-Basic-Python-Setup-for-Machine-Learning-on-Windows_Watermarked.74516636f737.jpg 1920w" alt="A Basic Python Setup for Machine Learning on Windows"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-windows-machine-learning-setup/" class="stretched-link"><h3 class="my-0 h4">Setting Up Python for Machine Learning on Windows</h3></a>
+<p class="small mb-0 text-muted">In this step-by-step tutorial, you’ll cover the basics of setting up a Python numerical computation environment for machine learning on a Windows machine using the Anaconda Python distribution.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-basics.f9ccb38f5050.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐ Basics)" title="(⭐ Basics)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/traditional-face-detection-python/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Face-Recognition-with-Python_Watermarked.b2d3b4911af3.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Face-Recognition-with-Python_Watermarked.b2d3b4911af3.jpg&amp;w=480&amp;sig=72d1ea032f88023a729203329aa9a29b53dd192f 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Face-Recognition-with-Python_Watermarked.b2d3b4911af3.jpg&amp;w=960&amp;sig=4d27db0e7a08702f65972992c65d97c67b868e5e 960w, https://files.realpython.com/media/Face-Recognition-with-Python_Watermarked.b2d3b4911af3.jpg 1920w" alt="Python Face Recognition and Face Detection"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/traditional-face-detection-python/" class="stretched-link"><h3 class="my-0 h4">Traditional Face Detection With Python</h3></a>
+<p class="small mb-0 text-muted">In this course on face detection with Python, you&#39;ll learn about a historically important algorithm for object detection that can be successfully applied to finding the location of a human face within an image.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-opencv-color-spaces/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Simple-image-segmentation-using-OpenCV-color-spaces_Watermark.b9993eceabc0.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Simple-image-segmentation-using-OpenCV-color-spaces_Watermark.b9993eceabc0.jpg&amp;w=480&amp;sig=2522c92c8293e2afe7b366ce1e8c6c47ee9b4e4a 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Simple-image-segmentation-using-OpenCV-color-spaces_Watermark.b9993eceabc0.jpg&amp;w=960&amp;sig=a23372b20a6b83b97f5450cbc8b107ca7bc041a9 960w, https://files.realpython.com/media/Simple-image-segmentation-using-OpenCV-color-spaces_Watermark.b9993eceabc0.jpg 1920w" alt="Color Spaces and How to Use Them With OpenCV and Python"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-opencv-color-spaces/" class="stretched-link"><h3 class="my-0 h4">Image Segmentation Using Color Spaces in OpenCV + Python</h3></a>
+<p class="small mb-0 text-muted">Learn how to segment an object from an image based on color in Python using OpenCV.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/linear-regression-in-python/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg&amp;w=480&amp;sig=3be4751287a71577f0b247ddeb74eca56610f78d 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg&amp;w=960&amp;sig=e30f8718b654654a64fdd74e39a62aa507f06595 960w, https://files.realpython.com/media/Linear-Regression-in-Python_Watermarked.479f82188ace.jpg 1920w" alt="Linear Regression in Python"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/linear-regression-in-python/" class="stretched-link"><h3 class="my-0 h4">Linear Regression in Python</h3></a>
+<p class="small mb-0 text-muted">In this step-by-step tutorial, you&#39;ll get started with linear regression in Python. Linear regression is one of the fundamental statistical and machine learning techniques.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-intermediate.be875f0e952e.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐ Intermediate)" title="(⭐⭐ Intermediate)">
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-keras-text-classification/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Practical-Text-Classification-with-Keras-and-Python_Watermark.fe326bd75146.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Practical-Text-Classification-with-Keras-and-Python_Watermark.fe326bd75146.jpg&amp;w=480&amp;sig=48053911551f83ffdf687517b063eb61c50871ce 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Practical-Text-Classification-with-Keras-and-Python_Watermark.fe326bd75146.jpg&amp;w=960&amp;sig=ce191ecc93737bc51b13b532dbbfb322ddcd6f10 960w, https://files.realpython.com/media/Practical-Text-Classification-with-Keras-and-Python_Watermark.fe326bd75146.jpg 1920w" alt="Practical Text Classification With Python and Keras"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-keras-text-classification/" class="stretched-link"><h3 class="my-0 h4">Practical Text Classification With Python and Keras</h3></a>
+<p class="small mb-0 text-muted">Learn about Python text classification with Keras. Work your way from a bag-of-words model with logistic regression to more advanced methods leading to convolutional neural networks.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-advanced.c7aff78238cc.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐⭐ Advanced)" title="(⭐⭐⭐ Advanced)">
+</div>
+</div>
+</div>
+
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-speech-recognition/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/The-Ultimate-Guide-To-Speech-Recognition-With-Python_Watermarked.c0511baf27ba.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/The-Ultimate-Guide-To-Speech-Recognition-With-Python_Watermarked.c0511baf27ba.jpg&amp;w=480&amp;sig=9c3dbe8b9e5c0a05b993b7908bd6063b12664c1f 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/The-Ultimate-Guide-To-Speech-Recognition-With-Python_Watermarked.c0511baf27ba.jpg&amp;w=960&amp;sig=c9fcc84aebc4f9e27842f9955fde304104c0ef3e 960w, https://files.realpython.com/media/The-Ultimate-Guide-To-Speech-Recognition-With-Python_Watermarked.c0511baf27ba.jpg 1920w" alt="Python Speech Recognition"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-speech-recognition/" class="stretched-link"><h3 class="my-0 h4">The Ultimate Guide To Speech Recognition With Python</h3></a>
+<p class="small mb-0 text-muted">An in-depth tutorial on speech recognition with Python. Learn which speech recognition library gives the best results and build a full-featured &quot;Guess The Word&quot; game with it.</p>
+</div>
+<div class="col-xs-12 col-sm-1 align-self-center p-0 m-0 text-center">
+<div class="mt-3 d-md-none"></div>
+<img src="/static/badges/skill-advanced.c7aff78238cc.svg" class="img-fluid w-100 mb-0" style="max-width: 100px;" alt="(⭐⭐⭐ Advanced)" title="(⭐⭐⭐ Advanced)">
+</div>
+</div>
+</div>
+<p class="muted small text-center mt-2 mb-0"><a href="https://feedback.realpython.com/realpython-com/?d=eyJwIjoicmVhbHB5dGhvbi1jb20iLCJzaWciOiJWMnYrWmFzYT1kdCM0cXMtUzQ7Pz5YX01WdVBvSUpOaGBSJDQ0XngqIiwidCI6Ik1hY2hpbmUgTGVhcm5pbmcgV2l0aCBQeXRob24gKExlYXJuaW5nIFBhdGgpIiwidSI6Ii9sZWFybmluZy1wYXRocy9tYWNoaW5lLWxlYXJuaW5nLXB5dGhvbi8ifQ==" target="_blank"><i class="fa fa-commenting-o" aria-hidden="true"></i> Got feedback on this learning path?</a></p>
+<p class="mt-3"><a href="/learning-paths/">« Browse All Learning Paths</a></p>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="text-center text-muted">© 2012–2020 Real Python ⋅ <a style="text-decoration: none;" href="/privacy-policy/">Privacy Policy</a>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="/static/jquery.min.220afd743d9e.js"></script>
+<script src="/static/popper.min.1022eaf388cc.js"></script>
+<script src="/static/bootstrap.min.61f338f870fc.js"></script>
+<script src="/static/repl-toggle.366cb6d72340.js"></script>
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+</body>
+</html>

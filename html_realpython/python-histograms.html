@@ -1,0 +1,493 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://files.realpython.com" rel="preconnect">
+<title>Python Histogram Plotting: NumPy, Matplotlib, Pandas &amp; Seaborn – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="In this course, you&#39;ll be equipped to make production-quality, presentation-ready Python histogram plots with a range of choices and features. It&#39;s your one-stop shop for constructing and manipulating histograms with Python&#39;s scientific stack.">
+<meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/gfonts/font.32be62914940.css">
+<link rel="stylesheet" href="/static/realpython.min.02b677b0fce9.css">
+<link rel="canonical" href="https://realpython.com/courses/python-histograms/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/Python_Histograms_Watermark.c4daed2c983b.jpg">
+<meta property="og:image" content="https://files.realpython.com/media/Python_Histograms_Watermark.c4daed2c983b.jpg">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="Python Histogram Plotting: NumPy, Matplotlib, Pandas &amp; Seaborn – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/courses/python-histograms/">
+<meta property="og:description" content="In this course, you&#39;ll be equipped to make production-quality, presentation-ready Python histogram plots with a range of choices and features. It&#39;s your one-stop shop for constructing and manipulating histograms with Python&#39;s scientific stack.">
+<link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="/manifest.json">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+  
+    ga('set', 'anonymizeIp', true);
+  
+  
+  ga('send', 'pageview');
+  
+</script>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column">
+<div class="container flex-row">
+<a class="navbar-brand" href="/">
+<img src="/static/real-python-logo.893c30edea53.svg" height="40" class="d-inline-block align-top" alt="Real Python">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-2 flex-fill">
+<li class="nav-item">
+<a class="nav-link" href="/start-here/">Start&nbsp;Here</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap"></span> Learn Python
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+<a class="dropdown-item" href="/" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and tutorials</small></a>
+<a class="dropdown-item" href="/courses/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-film"></i> Video Courses →<br><small class="text-secondary">Step-by-step video lessons</small></a>
+<a class="dropdown-item" href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+<a class="dropdown-item" href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+<a class="dropdown-item" href="/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack"></i> Community →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+<a class="dropdown-item pb-3" href="/tutorials/all/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags"></i> Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+<a class="dropdown-item border-top" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> Unlock All Content</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Store
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> RP Membership</a>
+<a class="dropdown-item" href="/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+<a class="dropdown-item" href="/podcasts/rpp/">Python Podcast</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+<a class="dropdown-item" href="/team/">Meet the Team</a>
+<a class="dropdown-item" href="/write-for-us/">Become a Tutorial Author</a>
+<a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+</div>
+</li>
+</ul>
+<div class="d-block d-xl-none">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search"></i></span></a>
+</li>
+</ul>
+</div>
+<div class="d-none d-xl-flex align-items-center mr-2">
+<form class="form-inline" action="/search" method="GET">
+<i class="fa fa-search fa-fw text-muted position-absolute pl-2"></i>
+<input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" name="q">
+<input type="hidden" name="_from" value="nav">
+</form>
+</div>
+<ul class="navbar-nav">
+<li class="nav-item form-inline">
+<a class="ml-2 ml-lg-0 btn btn-sm btn-primary px-3" href="/account/join/">Join</a>
+</li>
+<li class="nav-item">
+<a class="btn text-light" href="/account/login/">Sign&#8209;In</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+<div class="row justify-content-center">
+<div class="col-12 mb-2">
+<a href="/courses/python-histograms/continue/">
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Python Histogram Plots" src="https://files.realpython.com/media/Python_Histograms_Watermark.c4daed2c983b.jpg" width="1920" height="1080" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python_Histograms_Watermark.c4daed2c983b.jpg&amp;w=480&amp;sig=783b873487def2aea3fdfe35ab6dc5bfdb85bbde 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python_Histograms_Watermark.c4daed2c983b.jpg&amp;w=960&amp;sig=b12228170000458357a92f522c8541245d0c5599 960w, https://files.realpython.com/media/Python_Histograms_Watermark.c4daed2c983b.jpg 1920w" sizes="75vw">
+<div class="card-img-overlay d-flex align-items-center rounded visible-hover" style="background: rgba(0,0,0,0.3);">
+<div class="mx-auto">
+<span class="text-light" style="opacity: 0.90;"><i class="fa fa-4x fa-play"></i></span>
+</div>
+</div>
+</figure>
+</a>
+</div>
+<div class="col-md-11 col-lg-8 article">
+<div class="article-body">
+<h1>Python Histogram Plotting: NumPy, Matplotlib, Pandas &amp; Seaborn</h1>
+<div class="container">
+<div class="row">
+<div class="col-2 col-md-1 p-0 align-self-center">
+<a href="#team"><img src="https://files.realpython.com/media/century.d2e9b3c6afef.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/century.d2e9b3c6afef.jpg&amp;w=340&amp;sig=861c7a14d6614e6a75e75cb82589695a247ccd05 340w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/century.d2e9b3c6afef.jpg&amp;w=680&amp;sig=179b2d43ebe9f14e874678bf2b5055a7e4f84746 680w, https://files.realpython.com/media/century.d2e9b3c6afef.jpg 1361w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Joe Tatusko"></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p>
+<span class="text-muted">
+<span class="mr-2"><a class="text-muted" href="#team" target="_blank">Joe Tatusko</a></span>
+<span class="mr-2">8 Lessons</span>
+<span class="mr-2"><i class="fa fa-clock-o"></i> 39m</span>
+<br>
+<span class="fa fa-tags"></span>
+<a href="/tutorials/basics/" target="_blank" class="badge badge-light text-muted">basics</a>
+<a href="/tutorials/data-science/" target="_blank" class="badge badge-light text-muted">data-science</a>
+</span>
+ </p>
+</div>
+</div>
+</div>
+<div class="mb-4"><p>In this course, you&rsquo;ll be equipped to make production-quality, presentation-ready Python histogram plots with a range of choices and features.</p>
+<p>If you have introductory to intermediate knowledge in Python and statistics, then you can use this article as a one-stop shop for building and plotting histograms in Python using libraries from its scientific stack, including NumPy, Matplotlib, Pandas, and Seaborn.</p>
+<p>A histogram is a great tool for quickly assessing a <a href="https://en.wikipedia.org/wiki/Probability_distribution">probability distribution</a> that is intuitively understood by almost any audience. Python offers a handful of different options for building and plotting histograms. Most people know a histogram by its graphical representation, which is similar to a bar graph:</p>
+<p><a href="https://files.realpython.com/media/commute_times.621e5b1ce062.png" target="_blank"><img loading="lazy" class="img-fluid mx-auto d-block w-75" src="https://files.realpython.com/media/commute_times.621e5b1ce062.png" width="1152" height="888" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/commute_times.621e5b1ce062.png&amp;w=288&amp;sig=408f56b07d4fb71d47171405f51e3cb58a7e6cc2 288w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/commute_times.621e5b1ce062.png&amp;w=576&amp;sig=a2b0324c81a7cd89fe7ceaacdcd4ae797ad1a587 576w, https://files.realpython.com/media/commute_times.621e5b1ce062.png 1152w" sizes="75vw" alt="Histogram of commute times for 1000 commuters" /></a></p>
+<p>This course will guide you through creating plots like the one above as well as more complex ones. Here&rsquo;s what you&rsquo;ll cover:</p>
+<ul>
+<li>Building histograms in pure Python, without use of third party libraries</li>
+<li>Constructing histograms with NumPy to summarize the underlying data</li>
+<li>Plotting the resulting histogram with Matplotlib, Pandas, and Seaborn</li>
+</ul>
+<div class="alert alert-warning" role="alert"><p><strong>Free Bonus:</strong> Short on time? <a href="https://realpython.com/bonus/histograms-cheatsheet/" class="alert-link" data-toggle="modal" data-target="#modal-histograms-cheatsheet" data-focus="false">Click here to get access to a free two-page Python histograms cheat sheet</a> that summarizes the techniques explained in this tutorial.</p></div></div>
+<div class="text-center my-5">
+<a class="btn btn-primary btn-lg px-4" href="/courses/python-histograms/continue/"><i class="mr-2 fa fa-play fa-fw"></i>Get Started</a>
+</div>
+<div class="mb-5 p-3 bg-white rounded border shadow-sm">
+<h2 class="border-bottom border-gray pb-2 mb-0 h3 mt-0 pt-0">Python Histogram Plotting: NumPy, Matplotlib, Pandas &amp; Seaborn</h2>
+<p class="text-muted mt-1">8 Lessons<span class="ml-2 fa fa-clock-o"></span> 39m</p>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/python-histograms-overview/"><i class="fa fa-film text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/python-histograms-overview/" class=""><span>1. Python Histogram Plotting: NumPy, Matplotlib, Pandas &amp; Seaborn (Overview)</span></a> <span class="text-muted">(01:14)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/pure-python-histograms/"><i class="fa fa-film text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/pure-python-histograms/" class=""><span>2. Pure Python Histograms</span></a> <span class="text-muted">(06:24)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/numpy-histograms/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/numpy-histograms/" class=""><span>3. NumPy Histograms</span></a> <span class="text-muted">(04:23)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/matplotlib-and-pandas/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/matplotlib-and-pandas/" class=""><span>4. Matplotlib and Pandas</span></a> <span class="text-muted">(08:52)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/kernel-density-estimates/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/kernel-density-estimates/" class=""><span>5. Kernel Density Estimates</span></a> <span class="text-muted">(06:00)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/plotting-seaborn/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/plotting-seaborn/" class=""><span>6. Plotting With Seaborn</span></a> <span class="text-muted">(03:55)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/pandas-tools/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/pandas-tools/" class=""><span>7. Pandas Tools</span></a> <span class="text-muted">(05:59)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/python-histogram-plotting-numpy-matplotlib-pandas-seaborn-conclusion/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/python-histogram-plotting-numpy-matplotlib-pandas-seaborn-conclusion/" class=""><span>8. Python Histogram Plotting: NumPy, Matplotlib, Pandas &amp; Seaborn (Conclusion)</span></a> <span class="text-muted">(02:22)</span><p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center my-5">
+<a class="btn btn-primary btn-lg px-4" href="/lessons/python-histograms-overview/"><i class="mr-2 fa fa-play fa-fw"></i>Get Started</a>
+</div>
+<div class="card mb-5" id="team">
+<p class="card-header h3">About <strong>Joe Tatusko</strong></p>
+<div class="card-body">
+<div class="container p-0">
+<div class="row">
+<div class="col-12 col-md-3 align-self-center">
+<a href="/team/jtatusko/"><img loading="lazy" src="https://files.realpython.com/media/century.d2e9b3c6afef.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/century.d2e9b3c6afef.jpg&amp;w=340&amp;sig=861c7a14d6614e6a75e75cb82589695a247ccd05 340w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/century.d2e9b3c6afef.jpg&amp;w=680&amp;sig=179b2d43ebe9f14e874678bf2b5055a7e4f84746 680w, https://files.realpython.com/media/century.d2e9b3c6afef.jpg 1361w" sizes="25vw" class="d-block d-md-none rounded-circle img-fluid w-33 mb-0 mx-auto" alt="Joe Tatusko"></a>
+<a href="/team/jtatusko/"><img loading="lazy" src="https://files.realpython.com/media/century.d2e9b3c6afef.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/century.d2e9b3c6afef.jpg&amp;w=340&amp;sig=861c7a14d6614e6a75e75cb82589695a247ccd05 340w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/century.d2e9b3c6afef.jpg&amp;w=680&amp;sig=179b2d43ebe9f14e874678bf2b5055a7e4f84746 680w, https://files.realpython.com/media/century.d2e9b3c6afef.jpg 1361w" sizes="25vw" class="d-none d-md-block rounded-circle img-fluid w-100 mb-0" alt="Joe Tatusko"></a>
+</div>
+<div class="col mt-3">
+<p>Joe is a manufacturing engineer turned Pythonista with interests in data wrangling and visualization.</p>
+<a href="/team/jtatusko/" class="card-link">» More about Joe</a>
+</div>
+</div>
+</div>
+</div>
+<hr class="my-0">
+<div class="card-body pb-0">
+<div class="container">
+<div class="row">
+<p><em>Each tutorial at Real Python is created by a team of developers so that it meets our high quality standards. The team members who worked on this tutorial are:</em></p>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/tmoore/"><img loading="lazy" src="https://files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG&amp;w=77&amp;sig=123b8cbeaee9b9fddbe41452e10fa0a05cfad2e0 77w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG&amp;w=154&amp;sig=46886020559cd3c87306f74c6c1bc5ae8b156e62 154w, https://files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG 308w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Tappan Moore"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/tmoore/" class="card-link"><p>Tappan</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+ <a href="/team/jjablonski/"><img loading="lazy" src="https://files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg&amp;w=200&amp;sig=d779dbceba743afb659648000525a6a71656ae98 200w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg&amp;w=400&amp;sig=99ce401a9a219f6b406309e90925252be1900dfc 400w, https://files.realpython.com/media/jjablonksi-avatar.e37c4f83308e.jpg 800w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Joanna Jablonski"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/jjablonski/" class="card-link"><p>Joanna</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/dbader/"><img loading="lazy" src="https://files.realpython.com/media/daniel-square.d58bf4388750.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/daniel-square.d58bf4388750.jpg&amp;w=250&amp;sig=0f6c5ef7f5786b2a198fe2d700695467601836fe 250w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/daniel-square.d58bf4388750.jpg&amp;w=500&amp;sig=6d44e31ac8b0ed5d7bf09163b66e9374d79b7256 500w, https://files.realpython.com/media/daniel-square.d58bf4388750.jpg 1000w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Dan Bader"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/dbader/" class="card-link"><p>Dan</p></a>
+</div>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/bsolomon/"><img loading="lazy" src="https://files.realpython.com/media/bsolomon.2a5a05833ac0.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/bsolomon.2a5a05833ac0.jpg&amp;w=234&amp;sig=853eac2d1d5be58ddd0495dc2a21d9e96519fdf6 234w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/bsolomon.2a5a05833ac0.jpg&amp;w=469&amp;sig=25311cd6c3fabe7bfe4e314ea4c30a84b3b5258f 469w, https://files.realpython.com/media/bsolomon.2a5a05833ac0.jpg 938w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Brad Solomon"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/bsolomon/" class="card-link"><p>Brad</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/acutenco/"><img loading="lazy" src="https://files.realpython.com/media/acutenco.676e4197c133.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/acutenco.676e4197c133.jpg&amp;w=225&amp;sig=f2c31a6ca0c6fc19f3e929da196e78055380a633 225w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/acutenco.676e4197c133.jpg&amp;w=450&amp;sig=5fc12de7ede42da8010e8a9284eaad7f865fbe84 450w, https://files.realpython.com/media/acutenco.676e4197c133.jpg 900w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Adriana Cutenco"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/acutenco/" class="card-link"><p>Adriana</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center"></div>
+<div class="col pl-0 d-none d-sm-block"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p class="mb-5"><a href="/courses/">« Browse All Courses</a></p>
+</div>
+</div>
+</div>
+<div class="modal fade" id="modal-histograms-cheatsheet" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div class="modal-content">
+<div class="modal-header bg-light pt-3 pb-2">
+<div class="container-fluid">
+<div class="row">
+<div class="col-12">
+<div class="progress" style="height: .5rem;">
+<div class="progress-bar progress-bar-striped progress-bar-animated w-50" role="progressbar"></div>
+</div>
+</div>
+<div class="col-12">
+<p class="text-muted text-center mb-0 mt-2">Almost there! Complete this form and click the button below to gain instant access:</p>
+</div>
+</div>
+</div>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body m-4">
+<div class="container-fluid">
+<div class="row align-items-center">
+<div class="col-12 col-lg-4">
+<img class="img-fluid rounded w-100 mb-4" src="https://files.realpython.com/media/python-histograms-cheatsheet.ec3f0dfed547.png">
+</div>
+<div class="col">
+<p class="text-center h3 mb-4">Python Histogram Plots Cheat Sheet (PDF)</p>
+<form class="col-12" action="/optins/process/" method="post">
+<input type="hidden" name="csrfmiddlewaretoken" value="p4fBXWPqp848wyCD5r98SBxRBFpr0b9AzrVqc8dRgmwPreB4pHHQVjITW20iF7sT">
+<input type="hidden" name="slug" value="histograms-cheatsheet">
+<div class="form-group">
+<input type="email" name="email" class="form-control" placeholder="Email Address" required autofocus>
+</div>
+<button name="submit" type="submit" class="btn btn-primary btn-block text-wrap">Send Cheat Sheet »</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="text-center text-muted">© 2012–2020 Real Python ⋅ <a style="text-decoration: none;" href="/privacy-policy/">Privacy Policy</a>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="/static/jquery.min.220afd743d9e.js"></script>
+<script src="/static/popper.min.1022eaf388cc.js"></script>
+<script src="/static/bootstrap.min.61f338f870fc.js"></script>
+<script src="/static/repl-toggle.366cb6d72340.js"></script>
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+</body>
+</html>

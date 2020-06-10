@@ -1,0 +1,409 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://files.realpython.com" rel="preconnect">
+<title>Immutability in Python – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="In Python, immutable vs mutable data types and objects types can cause some confusion—and weird bugs. With this course you&#39;ll see what the difference between mutable and immutable data types is in Python, and how you can use it to your advantage in your own programs.">
+<meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/gfonts/font.32be62914940.css">
+<link rel="stylesheet" href="/static/realpython.min.02b677b0fce9.css">
+<link rel="canonical" href="https://realpython.com/courses/immutability-python/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/Intermediate_Watermarked.9f8c0a24bde7.jpg">
+<meta property="og:image" content="https://files.realpython.com/media/Intermediate_Watermarked.9f8c0a24bde7.jpg">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="Immutability in Python – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/courses/immutability-python/">
+<meta property="og:description" content="In Python, immutable vs mutable data types and objects types can cause some confusion—and weird bugs. With this course you&#39;ll see what the difference between mutable and immutable data types is in Python, and how you can use it to your advantage in your own programs.">
+<link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="/manifest.json">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+  
+    ga('set', 'anonymizeIp', true);
+  
+  
+  ga('send', 'pageview');
+  
+</script>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column">
+<div class="container flex-row">
+<a class="navbar-brand" href="/">
+<img src="/static/real-python-logo.893c30edea53.svg" height="40" class="d-inline-block align-top" alt="Real Python">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-2 flex-fill">
+<li class="nav-item">
+<a class="nav-link" href="/start-here/">Start&nbsp;Here</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap"></span> Learn Python
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+<a class="dropdown-item" href="/" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and tutorials</small></a>
+<a class="dropdown-item" href="/courses/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-film"></i> Video Courses →<br><small class="text-secondary">Step-by-step video lessons</small></a>
+<a class="dropdown-item" href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+<a class="dropdown-item" href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+<a class="dropdown-item" href="/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack"></i> Community →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+<a class="dropdown-item pb-3" href="/tutorials/all/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags"></i> Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+<a class="dropdown-item border-top" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> Unlock All Content</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Store
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> RP Membership</a>
+<a class="dropdown-item" href="/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+<a class="dropdown-item" href="/podcasts/rpp/">Python Podcast</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+<a class="dropdown-item" href="/team/">Meet the Team</a>
+<a class="dropdown-item" href="/write-for-us/">Become a Tutorial Author</a>
+<a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+</div>
+</li>
+</ul>
+<div class="d-block d-xl-none">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search"></i></span></a>
+</li>
+</ul>
+</div>
+<div class="d-none d-xl-flex align-items-center mr-2">
+<form class="form-inline" action="/search" method="GET">
+<i class="fa fa-search fa-fw text-muted position-absolute pl-2"></i>
+<input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" name="q">
+<input type="hidden" name="_from" value="nav">
+</form>
+</div>
+<ul class="navbar-nav">
+<li class="nav-item form-inline">
+<a class="ml-2 ml-lg-0 btn btn-sm btn-primary px-3" href="/account/join/">Join</a>
+</li>
+<li class="nav-item">
+<a class="btn text-light" href="/account/login/">Sign&#8209;In</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+<div class="row justify-content-center">
+<div class="col-12 mb-2">
+<a href="/courses/immutability-python/continue/">
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Intermediate Python" src="https://files.realpython.com/media/Intermediate_Watermarked.9f8c0a24bde7.jpg" width="1920" height="1080" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Intermediate_Watermarked.9f8c0a24bde7.jpg&amp;w=480&amp;sig=7c5d7270d14090085d26ca0dbe06eebf20c12058 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Intermediate_Watermarked.9f8c0a24bde7.jpg&amp;w=960&amp;sig=5d622380a258ed5cd898e40572345babd8670515 960w, https://files.realpython.com/media/Intermediate_Watermarked.9f8c0a24bde7.jpg 1920w" sizes="75vw">
+<div class="card-img-overlay d-flex align-items-center rounded visible-hover" style="background: rgba(0,0,0,0.3);">
+<div class="mx-auto">
+<span class="text-light" style="opacity: 0.90;"><i class="fa fa-4x fa-play"></i></span>
+</div>
+</div>
+</figure>
+</a>
+</div>
+<div class="col-md-11 col-lg-8 article">
+<div class="article-body">
+<h1>Immutability in Python</h1>
+<div class="container">
+<div class="row">
+<div class="col-2 col-md-1 p-0 align-self-center">
+<a href="#team"><img src="https://files.realpython.com/media/daniel-square.d58bf4388750.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/daniel-square.d58bf4388750.jpg&amp;w=250&amp;sig=0f6c5ef7f5786b2a198fe2d700695467601836fe 250w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/daniel-square.d58bf4388750.jpg&amp;w=500&amp;sig=6d44e31ac8b0ed5d7bf09163b66e9374d79b7256 500w, https://files.realpython.com/media/daniel-square.d58bf4388750.jpg 1000w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Dan Bader"></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p>
+<span class="text-muted">
+<span class="mr-2"><a class="text-muted" href="#team" target="_blank">Dan Bader</a></span>
+<span class="mr-2">5 Lessons</span>
+<span class="mr-2"><i class="fa fa-clock-o"></i> 9m</span>
+<br>
+<span class="fa fa-tags"></span>
+<a href="/tutorials/intermediate/" target="_blank" class="badge badge-light text-muted">intermediate</a>
+<a href="/tutorials/python/" target="_blank" class="badge badge-light text-muted">python</a>
+</span>
+</p>
+</div>
+</div>
+</div>
+<div class="mb-4"><p>In Python, immutable vs mutable data types and objects types can cause some confusion—and weird bugs. With this video course you&rsquo;ll see what the difference between mutable and immutable data types is in Python, and how you can use it to your advantage in your own programs.</p>
+<p>You&rsquo;ll also see how to deal with a language quirk in Python that allows objects referenced by immutable types to me modified. Python&rsquo;s definition of &ldquo;immutable&rdquo; can be a bit misleading.</p>
+<p>Basically, the promise of &ldquo;immutability&rdquo; on tuples is only partly true. The tuple itself cannot be modified, but objects referenced by the tuple can be. This is sometimes called &ldquo;non-transitive immutability.&rdquo;</p>
+<p>If the tuple has an immutable field like a string for example, then it cannot be modified. A mutable field like a list however, can be edited, even if it&rsquo;s embedded in the &ldquo;immutable&rdquo; tuple.</p>
+<p>When the Python documentation refers to an object as being &ldquo;immutable&rdquo; they mean the behavior above observed. Other immutable types in Python behave the same way, e.g. namedtuples or frozensets.</p>
+<p>If you&rsquo;ve ever encountered the following exception and now you want to know why, this is the video course for you:</p>
+<div class="highlight"><pre><span></span><code>TypeError: &#39;tuple&#39; object does not support item assignment
+</code></pre></div></div>
+<div class="text-center my-5">
+<a class="btn btn-primary btn-lg px-4" href="/courses/immutability-python/continue/"><i class="mr-2 fa fa-play fa-fw"></i>Get Started</a>
+</div>
+<div class="mb-5 p-3 bg-white rounded border shadow-sm">
+<h2 class="border-bottom border-gray pb-2 mb-0 h3 mt-0 pt-0">Immutability in Python</h2>
+<p class="text-muted mt-1">5 Lessons<span class="ml-2 fa fa-clock-o"></span> 9m</p>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/python-immutability-overview/"><i class="fa fa-film text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/python-immutability-overview/" class=""><span>1. Python Immutability Overview</span></a> <span class="text-muted">(00:37)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/mutable-objects-vs-immutable-objects-python/"><i class="fa fa-film text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/mutable-objects-vs-immutable-objects-python/" class=""><span>2. Mutable Objects vs Immutable Objects in Python</span></a> <span class="text-muted">(01:19)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/examples-mutable-and-immutable-objects/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/examples-mutable-and-immutable-objects/" class=""><span>3. Examples for Mutable and Immutable Objects</span></a> <span class="text-muted">(01:03)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/when-use-immutable-vs-mutable-objects/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/when-use-immutable-vs-mutable-objects/" class=""><span>4. When to Use Immutable vs Mutable Objects</span></a> <span class="text-muted">(02:40)</span><p>
+</div>
+</div>
+</div>
+</div>
+<div class="media mt-4 mb-3">
+<div class="container">
+<div class="row">
+<div class="col-1 p-0 align-self-center mr-1">
+<a href="/lessons/immutability-quirks-and-oddities-python/"><i class="fa fa-lock text-muted fa-2x fa-fw text-center w-100"></i></a>
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p class="h5 mb-0"><a href="/lessons/immutability-quirks-and-oddities-python/" class=""><span>5. Immutability Quirks and Oddities in Python</span></a> <span class="text-muted">(04:16)</span><p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center my-5">
+<a class="btn btn-primary btn-lg px-4" href="/lessons/python-immutability-overview/"><i class="mr-2 fa fa-play fa-fw"></i>Get Started</a>
+</div>
+<div class="card mb-5" id="team">
+<p class="card-header h3">About <strong>Dan Bader</strong></p>
+<div class="card-body">
+<div class="container p-0">
+<div class="row">
+<div class="col-12 col-md-3 align-self-center">
+<a href="/team/dbader/"><img loading="lazy" src="https://files.realpython.com/media/daniel-square.d58bf4388750.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/daniel-square.d58bf4388750.jpg&amp;w=250&amp;sig=0f6c5ef7f5786b2a198fe2d700695467601836fe 250w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/daniel-square.d58bf4388750.jpg&amp;w=500&amp;sig=6d44e31ac8b0ed5d7bf09163b66e9374d79b7256 500w, https://files.realpython.com/media/daniel-square.d58bf4388750.jpg 1000w" sizes="25vw" class="d-block d-md-none rounded-circle img-fluid w-33 mb-0 mx-auto" alt="Dan Bader"></a>
+<a href="/team/dbader/"><img loading="lazy" src="https://files.realpython.com/media/daniel-square.d58bf4388750.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/daniel-square.d58bf4388750.jpg&amp;w=250&amp;sig=0f6c5ef7f5786b2a198fe2d700695467601836fe 250w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/daniel-square.d58bf4388750.jpg&amp;w=500&amp;sig=6d44e31ac8b0ed5d7bf09163b66e9374d79b7256 500w, https://files.realpython.com/media/daniel-square.d58bf4388750.jpg 1000w" sizes="25vw" class="d-none d-md-block rounded-circle img-fluid w-100 mb-0" alt="Dan Bader"></a>
+</div>
+<div class="col mt-3">
+<p>Dan is the Chief Python Nut at Real Python. He helps Python developers take their coding skills to the next level with Python tutorials, books, and online training.</p>
+<a href="/team/dbader/" class="card-link">» More about Dan</a>
+</div>
+</div>
+</div>
+</div>
+<hr class="my-0">
+<div class="card-body pb-0">
+<div class="container">
+<div class="row">
+<p><em>Each tutorial at Real Python is created by a team of developers so that it meets our high quality standards. The team members who worked on this tutorial are:</em></p>
+</div>
+<div class="row align-items-center w-100 mx-auto">
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/tmoore/"><img loading="lazy" src="https://files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG&amp;w=77&amp;sig=123b8cbeaee9b9fddbe41452e10fa0a05cfad2e0 77w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG&amp;w=154&amp;sig=46886020559cd3c87306f74c6c1bc5ae8b156e62 154w, https://files.realpython.com/media/TappanAtNateLaura3.fe695c6e5270.JPG 308w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Tappan Moore"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/tmoore/" class="card-link"><p>Tappan</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center">
+<a href="/team/fdahlitz/"><img loading="lazy" src="https://files.realpython.com/media/pb_squared.9ece5fc1c4f5.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/pb_squared.9ece5fc1c4f5.jpg&amp;w=732&amp;sig=87c4734d80dec82e0f92e8372fd4f163c1a44227 732w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/pb_squared.9ece5fc1c4f5.jpg&amp;w=1465&amp;sig=8e1da0a67fe5f4fab281912bdc2f289fa72c2321 1465w, https://files.realpython.com/media/pb_squared.9ece5fc1c4f5.jpg 2931w" sizes="10vw" class="rounded-circle img-fluid w-100" alt="Florian Dahlitz"></a>
+</div>
+<div class="col pl-0 d-none d-sm-block">
+<a href="/team/fdahlitz/" class="card-link"><p>Florian</p></a>
+</div>
+<div class="col-4 col-sm-2 align-self-center"></div>
+<div class="col pl-0 d-none d-sm-block"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-5">
+<h3 id="viewer-comments">Participant Comments</h3>
+<div class="">
+<div id="comment-a85fd539-c217-43bc-9ca8-344e0c07f356" class="border rounded p-3 mb-1">
+<div class="container">
+<div class="row">
+<div class="col-2 col-md-1 p-0 align-self-center">
+<img loading="lazy" class="align-self-center rounded-circle img-fluid w-100" src="https://www.gravatar.com/avatar/9263e0806c6f4e4187142cdf1c316e72?s=500&amp;d=mp">
+</div>
+<div class="col pr-0 d-flex align-items-center">
+<p><strong>Tonya S</strong><span class="text-muted"> on <a class="text-muted" href="#comment-a85fd539-c217-43bc-9ca8-344e0c07f356">July 3, 2019</a></span></p>
+</div>
+</div>
+</div>
+<div class="my-3 comment-body"><p>Wow! This video series cleared up so much confusion for me regarding immutable objects! Thank you Dan!</p></div>
+</div>
+</div>
+</div>
+<p class="mb-5"><a href="/courses/">« Browse All Courses</a></p>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="text-center text-muted">© 2012–2020 Real Python ⋅ <a style="text-decoration: none;" href="/privacy-policy/">Privacy Policy</a>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="/static/jquery.min.220afd743d9e.js"></script>
+<script src="/static/popper.min.1022eaf388cc.js"></script>
+<script src="/static/bootstrap.min.61f338f870fc.js"></script>
+<script src="/static/repl-toggle.366cb6d72340.js"></script>
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+</body>
+</html>

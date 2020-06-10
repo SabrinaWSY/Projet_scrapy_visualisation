@@ -1,0 +1,364 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<link href="https://files.realpython.com" rel="preconnect">
+<title>DevOps With Python (Learning Path) – Real Python</title>
+<meta name="author" content="Real Python">
+<meta name="description" content="With this learning path you&#39;ll sample a variety of skills and technologies that any DevOps engineer working with Python should know.">
+<meta name="keywords" content="">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="/static/gfonts/font.32be62914940.css">
+<link rel="stylesheet" href="/static/realpython.min.02b677b0fce9.css">
+<link rel="canonical" href="https://realpython.com/learning-paths/python-devops/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://files.realpython.com/media/Python-DevOps-Tutorials_Watermarked.fd1f42e7d3a9.jpg">
+<meta property="og:image" content="https://files.realpython.com/media/Python-DevOps-Tutorials_Watermarked.fd1f42e7d3a9.jpg">
+<meta name="twitter:creator" content="@realpython">
+<meta name="twitter:site" content="@realpython">
+<meta property="og:title" content="DevOps With Python (Learning Path) – Real Python">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://realpython.com/learning-paths/python-devops/">
+<meta property="og:description" content="With this learning path you&#39;ll sample a variety of skills and technologies that any DevOps engineer working with Python should know.">
+<link href="/static/favicon.68cbf4197b0c.png" rel="icon">
+<link href="https://realpython.com/atom.xml" rel="alternate" title="Real Python" type="application/atom+xml">
+<link rel="manifest" href="/manifest.json">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35184939-1', 'auto', {'allowLinker': true});
+  
+    ga('set', 'anonymizeIp', true);
+  
+  
+  ga('send', 'pageview');
+  
+</script>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark flex-column">
+<div class="container flex-row">
+<a class="navbar-brand" href="/">
+<img src="/static/real-python-logo.893c30edea53.svg" height="40" class="d-inline-block align-top" alt="Real Python">
+</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+<ul class="navbar-nav mr-2 flex-fill">
+<li class="nav-item">
+<a class="nav-link" href="/start-here/">Start&nbsp;Here</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<span class="fa fa-graduation-cap"></span> Learn Python
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownLibrary">
+<a class="dropdown-item" href="/" style="color: #ff7e73; line-height: 110%;"><i class="fa fa-fw mr-1 fa-graduation-cap"></i> Python Tutorials →<br><small class="text-secondary">In-depth articles and tutorials</small></a>
+<a class="dropdown-item" href="/courses/" style="color: #abe5b1; line-height: 110%;"><i class="fa fa-fw mr-1 fa-film"></i> Video Courses →<br><small class="text-secondary">Step-by-step video lessons</small></a>
+<a class="dropdown-item" href="/quizzes/" style="color: #abe0e5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-trophy"></i> Quizzes →<br><small class="text-secondary">Check your learning progress</small></a>
+<a class="dropdown-item" href="/learning-paths/" style="color: #ffc873; line-height: 110%;"><i class="fa fa-fw mr-1 fa-map-o"></i> Learning Paths →<br><small class="text-secondary">Guided study plans for accelerated learning</small></a>
+<a class="dropdown-item" href="/community/" style="color: #e5c6ab; line-height: 110%;"><i class="fa fa-fw mr-1 fa-slack"></i> Community →<br><small class="text-secondary">Learn with other Pythonistas</small></a>
+<a class="dropdown-item pb-3" href="/tutorials/all/" style="color: #b8abe5; line-height: 110%;"><i class="fa fa-fw mr-1 fa-tags"></i> Topics →<br><small class="text-secondary">Focus on a specific area or skill level</small></a>
+<a class="dropdown-item border-top" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> Unlock All Content</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBooksCourses" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Store
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownBooksCourses">
+<a class="dropdown-item" href="/account/join/"><i class="fa fa-fw fa-star text-warning"></i> RP Membership</a>
+<a class="dropdown-item" href="/products/python-basics-book/">Python Basics Book</a>
+<a class="dropdown-item" href="/products/python-tricks-book/">Python Tricks Book</a>
+<a class="dropdown-item" href="/products/real-python-course/">The Real Python Course</a>
+<a class="dropdown-item" href="/products/managing-python-dependencies/">Managing Python Dependencies</a>
+<a class="dropdown-item" href="/products/sublime-python/">Sublime Text + Python Setup</a>
+<a class="dropdown-item" href="/products/pythonic-wallpapers/">Pythonic Wallpapers Pack</a>
+<a class="dropdown-item" href="https://nerdlettering.com" target="_blank">Python Mugs, T-Shirts, and More</a>
+<a class="dropdown-item" href="https://www.pythonistacafe.com" target="_blank">Pythonista Cafe Community</a>
+<a class="dropdown-item border-top" href="/products/">Browse All »</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMore" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+More
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdownMore">
+<a class="dropdown-item" href="/newsletter/">Python Newsletter</a>
+<a class="dropdown-item" href="/podcasts/rpp/">Python Podcast</a>
+<a class="dropdown-item" href="https://www.pythonjobshq.com" target="_blank">Python Job Board</a>
+<a class="dropdown-item" href="/team/">Meet the Team</a>
+<a class="dropdown-item" href="/write-for-us/">Become a Tutorial Author</a>
+<a class="dropdown-item" href="/become-an-instructor/">Become a Video Instructor</a>
+</div>
+</li>
+</ul>
+<div class="d-block d-xl-none">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link" href="/search" title="Search"><span class="d-block d-lg-none"><i class="fa fa-search"></i> Search</span><span class="d-none d-lg-block"><i class="fa fa-search"></i></span></a>
+</li>
+</ul>
+</div>
+<div class="d-none d-xl-flex align-items-center mr-2">
+<form class="form-inline" action="/search" method="GET">
+<i class="fa fa-search fa-fw text-muted position-absolute pl-2"></i>
+<input class="search-field form-control form-control-md mr-sm-1 mr-lg-2 w-100" style="padding-left: 2rem;" maxlength=50 type="search" placeholder="Search" aria-label="Search" name="q">
+<input type="hidden" name="_from" value="nav">
+</form>
+</div>
+<ul class="navbar-nav">
+<li class="nav-item form-inline">
+<a class="ml-2 ml-lg-0 btn btn-sm btn-primary px-3" href="/account/join/">Join</a>
+</li>
+<li class="nav-item">
+<a class="btn text-light" href="/account/login/">Sign&#8209;In</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<div class="container main-content">
+<div class="row justify-content-center">
+<div class="col-md-10 col-lg-8 article">
+<div class="article-body page-body">
+<h1 class="text-center mb-1">DevOps With Python</h1>
+<p class="text-center text-muted mt-0 mb-3"><a href="/learning-paths/" class="text-muted">Learning Path</a> ⋅ <strong>Skills:</strong> Packaging &amp; Deployment, AWS, Docker</p>
+<figure class="embed-responsive embed-responsive-16by9">
+<img class="card-img-top m-0 p-0 embed-responsive-item rounded" style="object-fit: contain;" alt="Python Dev-Ops artwork" src="https://files.realpython.com/media/Python-DevOps-Tutorials_Watermarked.fd1f42e7d3a9.jpg" width="1920" height="1080" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-DevOps-Tutorials_Watermarked.fd1f42e7d3a9.jpg&amp;w=480&amp;sig=2d420b2ccfa5c300620fced61ef8a827b6ff6b19 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-DevOps-Tutorials_Watermarked.fd1f42e7d3a9.jpg&amp;w=960&amp;sig=35a318f958674698cb6d80564b4cb2362547f714 960w, https://files.realpython.com/media/Python-DevOps-Tutorials_Watermarked.fd1f42e7d3a9.jpg 1920w" sizes="75vw">
+</figure>
+<p>Python is one of the primary technologies used by teams practicing DevOps. Its flexibility and accessibility make Python a great fit for this job, enabling the whole team to build web applications, data visualizations, and to improve their workflow with custom utilities.</p>
+<p>With this learning path you&rsquo;ll sample a variety of skills and technologies that any DevOps engineer working with Python should know.</p>
+<h3 id="additional-resources">Additional Resources</h3>
+<ul>
+<li><a href="/tutorials/devops/">DevOps Topics on Real Python</a></li>
+<li><a href="/tutorials/docker/">Docker Topic on Real Python</a></li>
+<li><a href="/tutorials/tools/">Tools Topic on Real Python</a></li>
+</ul>
+<h2 class="mb-0 mt-5">DevOps With Python</h2>
+<p class="text-muted"><a href="/learning-paths/" class="text-muted">Learning Path</a> ⋅ 7 Resources</p>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/running-python-scripts/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/How-to-Run-A-Python-Script_Watermarked.65fe32bf5487.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/How-to-Run-A-Python-Script_Watermarked.65fe32bf5487.jpg&amp;w=480&amp;sig=1a0e11b57b4330c7eadbd598da7cd201ba797e95 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/How-to-Run-A-Python-Script_Watermarked.65fe32bf5487.jpg&amp;w=960&amp;sig=b1a1edf963a0c5f15412f98d95ef60acc23fe32f 960w, https://files.realpython.com/media/How-to-Run-A-Python-Script_Watermarked.65fe32bf5487.jpg 1920w" alt="How to Run Your Python Scripts"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/running-python-scripts/" class="stretched-link"><h3 class="my-0 h4">Running Python Scripts</h3></a>
+<p class="small mb-0 text-muted">This step-by-step course will guide you through a series of ways to run Python scripts, depending on your environment, platform, needs, and skills as a programmer.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/what-is-pip/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/What-is-PIP_Watermarked.c46f49dc33f9.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/What-is-PIP_Watermarked.c46f49dc33f9.jpg&amp;w=480&amp;sig=c6c402b1b9f76aa20a9a501ddec1174cf07a9f0f 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/What-is-PIP_Watermarked.c46f49dc33f9.jpg&amp;w=960&amp;sig=dabfedf73734b9e9a0b8f385a47580525b2bfffd 960w, https://files.realpython.com/media/What-is-PIP_Watermarked.c46f49dc33f9.jpg 1920w" alt="What Is pip? A Guide for New Pythonistas"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/what-is-pip/" class="stretched-link"><h3 class="my-0 h4">Pip, the Python Package Manager</h3></a>
+<p class="small mb-0 text-muted">Learn how to use pip, the standard package manager for Python, so that you can install and manage additional packages that are not part of the Python standard library.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/how-to-publish-your-own-python-package-pypi/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/How-to-publish-an-open-source-Python-package-to-PyPI_Watermark.0f9c2da132aa.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/How-to-publish-an-open-source-Python-package-to-PyPI_Watermark.0f9c2da132aa.jpg&amp;w=480&amp;sig=aeff552d2d95cd366a87369ac9bdb15650cf6cac 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/How-to-publish-an-open-source-Python-package-to-PyPI_Watermark.0f9c2da132aa.jpg&amp;w=960&amp;sig=381c8b6b05005f46f17f9bba2514aebfcdfb98f8 960w, https://files.realpython.com/media/How-to-publish-an-open-source-Python-package-to-PyPI_Watermark.0f9c2da132aa.jpg 1920w" alt="How to Publish an Open-Source Python Package to PyPI"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/how-to-publish-your-own-python-package-pypi/" class="stretched-link"><h3 class="my-0 h4">Publishing Your Own Python Package to PyPI</h3></a>
+<p class="small mb-0 text-muted">Learn how to create a Python package for your project and how to publish it to PyPI, the Python Package Repository. Quickly get up to speed on everything from naming your package to configuring it using setup.py.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/courses/python-continuous-integration/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Continuous-Integration-for-Python_Watermarked.6716094db5fe.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Continuous-Integration-for-Python_Watermarked.6716094db5fe.jpg&amp;w=480&amp;sig=fa89b3b139293b8cecbb33b426dcaf92a30c50cd 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Continuous-Integration-for-Python_Watermarked.6716094db5fe.jpg&amp;w=960&amp;sig=7210a32c08a0b9cb9da3c4e45a17424d8f43ca41 960w, https://files.realpython.com/media/Continuous-Integration-for-Python_Watermarked.6716094db5fe.jpg 1920w" alt="Continuous Integration with Python: An Introduction"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/courses/python-continuous-integration/" class="stretched-link"><h3 class="my-0 h4">Continuous Integration With Python</h3></a>
+<p class="small mb-0 text-muted">Learn the core concepts behind Continuous Integration (CI) and why they are essential for modern software engineering teams.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/docker-in-action-fitter-happier-more-productive/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/docker-in-action.f9672cb8c20f.png" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/docker-in-action.f9672cb8c20f.png&amp;w=223&amp;sig=1d16562fb7bed8e361cccee73651d5f3095bfa0c 223w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/docker-in-action.f9672cb8c20f.png&amp;w=446&amp;sig=ea85029175e64e21c1d92f6eed5a313bbd0ae5eb 446w, https://files.realpython.com/media/docker-in-action.f9672cb8c20f.png 893w" alt="Docker"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/docker-in-action-fitter-happier-more-productive/" class="stretched-link"><h3 class="my-0 h4">Docker in Action: Fitter, Happier, More Productive</h3></a>
+<p class="small mb-0 text-muted">Let&#39;s look at how to set up your local development environment with Docker as well as continuous integration, step by step.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-boto3-aws-s3/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Python-and-AWS-S3_Watermark.547eaff22693.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-and-AWS-S3_Watermark.547eaff22693.jpg&amp;w=480&amp;sig=dbb7e7d093cde26472de15bfa363e46389033abf 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Python-and-AWS-S3_Watermark.547eaff22693.jpg&amp;w=960&amp;sig=8e589a9d6fccbf2d2ac45278d35b4bec3136b6be 960w, https://files.realpython.com/media/Python-and-AWS-S3_Watermark.547eaff22693.jpg 1920w" alt="Python, Boto3, and AWS S3: Demystified"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Course</strong></p>
+<a href="https://realpython.com/python-boto3-aws-s3/" class="stretched-link"><h3 class="my-0 h4">Python, Boto3, and AWS S3: Demystified</h3></a>
+<p class="small mb-0 text-muted">Get started working with Python, Boto3, and AWS S3. Learn how to create objects, upload them to S3, download their contents, and change their attributes directly from your script, all while avoiding common pitfalls.</p>
+</div>
+</div>
+</div>
+<div>
+<div class="pb-3" style="border-left: 1px solid gainsboro; position: relative; left: 15%;"></div>
+</div>
+<div class="container border rounded">
+<div class="row p-3">
+<div class="col-xs-12 col-sm-4 col-md-3 align-self-center p-0 m-0">
+<a href="https://realpython.com/python-logging/" class="stretched-link"><img class="img-fluid w-100 m-0 rounded" src="https://files.realpython.com/media/Logging-in-Python_Watermarked.4ca8974dc55c.jpg" srcset="https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Logging-in-Python_Watermarked.4ca8974dc55c.jpg&amp;w=480&amp;sig=b36d17911149e56b803089c1fe8a7063e55f525f 480w, https://robocrop.realpython.net/?url=https%3A//files.realpython.com/media/Logging-in-Python_Watermarked.4ca8974dc55c.jpg&amp;w=960&amp;sig=e1a09ad2952a672d7e12d085cbf495e4aa430d92 960w, https://files.realpython.com/media/Logging-in-Python_Watermarked.4ca8974dc55c.jpg 1920w" alt="Logging in Python"></a>
+</div>
+<div class="col m-0">
+<div class="mt-3 d-md-none"></div>
+<p class="small text-muted mb-0"><strong>Tutorial</strong></p>
+<a href="https://realpython.com/python-logging/" class="stretched-link"><h3 class="my-0 h4">Logging in Python</h3></a>
+<p class="small mb-0 text-muted">Learn why and how to get started with Python&#39;s powerful logging module to meet the needs of beginners and enterprise teams alike.</p>
+</div>
+</div>
+</div>
+<p class="muted small text-center mt-2 mb-0"><a href="https://feedback.realpython.com/realpython-com/?d=eyJwIjoicmVhbHB5dGhvbi1jb20iLCJzaWciOiImb31XbmFwV1FRMnpNdGNebSReSXBzWWl7Uz95OE9wPzNgPlQyKkQmIiwidCI6IkRldk9wcyBXaXRoIFB5dGhvbiAoTGVhcm5pbmcgUGF0aCkiLCJ1IjoiL2xlYXJuaW5nLXBhdGhzL3B5dGhvbi1kZXZvcHMvIn0=" target="_blank"><i class="fa fa-commenting-o" aria-hidden="true"></i> Got feedback on this learning path?</a></p>
+<p class="mt-3"><a href="/learning-paths/">« Browse All Learning Paths</a></p>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer">
+<div class="container">
+<p class="text-center text-muted">© 2012–2020 Real Python ⋅ <a style="text-decoration: none;" href="/privacy-policy/">Privacy Policy</a>
+</div>
+</footer>
+<script>
+      (function(document, history, location) {
+        var HISTORY_SUPPORT = !!(history && history.pushState);
+
+        var anchorScrolls = {
+          ANCHOR_REGEX: /^#[^ ]+$/,
+          OFFSET_HEIGHT_PX: 120,
+
+          /**
+           * Establish events, and fix initial scroll position if a hash is provided.
+           */
+          init: function() {
+            this.scrollToCurrent();
+            window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+            document.body.addEventListener('click', this.delegateAnchors.bind(this));
+          },
+
+          /**
+           * Return the offset amount to deduct from the normal scroll position.
+           * Modify as appropriate to allow for dynamic calculations
+           */
+          getFixedOffset: function() {
+            return this.OFFSET_HEIGHT_PX;
+          },
+
+          /**
+           * If the provided href is an anchor which resolves to an element on the
+           * page, scroll to it.
+           * @param  {String} href
+           * @return {Boolean} - Was the href an anchor.
+           */
+          scrollIfAnchor: function(href, pushToHistory) {
+            var match, rect, anchorOffset;
+
+            if(!this.ANCHOR_REGEX.test(href)) {
+              return false;
+            }
+
+            match = document.getElementById(href.slice(1));
+
+            if(match) {
+              rect = match.getBoundingClientRect();
+              anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+              window.scrollTo(window.pageXOffset, anchorOffset);
+
+              // Add the state to history as-per normal anchor links
+              if(HISTORY_SUPPORT && pushToHistory) {
+                history.pushState({}, document.title, location.pathname + href);
+              }
+            }
+
+            return !!match;
+          },
+
+          /**
+           * Attempt to scroll to the current location's hash.
+           */
+          scrollToCurrent: function() {
+            this.scrollIfAnchor(window.location.hash);
+          },
+
+          /**
+           * If the click event's target was an anchor, fix the scroll position.
+           */
+          delegateAnchors: function(e) {
+            var elem = e.target;
+
+            if(
+              elem.nodeName === 'A' &&
+              this.scrollIfAnchor(elem.getAttribute('href'), true)
+            ) {
+              e.preventDefault();
+            }
+          }
+        };
+
+        window.addEventListener(
+          'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+        );
+      })(window.document, window.history, window.location);
+    </script>
+<script src="/static/jquery.min.220afd743d9e.js"></script>
+<script src="/static/popper.min.1022eaf388cc.js"></script>
+<script src="/static/bootstrap.min.61f338f870fc.js"></script>
+<script src="/static/repl-toggle.366cb6d72340.js"></script>
+<script>
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {};
+  _dcs.account = '6214500';
+
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true;
+    dc.src = '//tag.getdrip.com/6214500.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>
+</body>
+</html>
